@@ -1,0 +1,26 @@
+body {
+	color: red;
+}
+
+h1 {
+	font-size: 48px;
+}
+
+p {
+	color: black;
+	font-size: 16px;
+}
+
+.myclass {
+	padding: 20px;
+	margin: 40px;
+}
+
+#myid {
+	border: 1px solid black;
+	/* 
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    */
+}
