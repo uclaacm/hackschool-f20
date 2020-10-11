@@ -86,10 +86,8 @@ What other tags can we find?
    ```html
    <!DOCTYPE html>
    <html>
-   	<head>
-	</head>
-   	<body>
-	</body>
+   	<head></head>
+   	<body></body>
    </html>
    ```
 
