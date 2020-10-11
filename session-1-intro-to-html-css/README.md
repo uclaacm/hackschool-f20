@@ -297,6 +297,7 @@ In the example, we have a value of `red` supplied to the property `color`. This 
 ```
 
 Your HTML file should look something like this afterwards:
+
 ![](images/link_css.png)
 
 Once you've linked the HTML and CSS files you should be able to see the appearance of your website change if there are any existing style rules in your CSS file.
