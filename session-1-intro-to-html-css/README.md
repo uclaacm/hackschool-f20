@@ -86,8 +86,10 @@ What other tags can we find?
    ```html
    <!DOCTYPE html>
    <html>
-   	<head> </head>
-   	<body></body>
+   	<head>
+	</head>
+   	<body>
+	</body>
    </html>
    ```
 
@@ -97,7 +99,10 @@ Try typing some lines of text in the `<body>` section. For example:
 
 ```html
 <body>
-	hello hi hey
+	hello
+	
+	hi
+    hey
 </body>
 ```
 
@@ -109,7 +114,7 @@ neatly makes it more readable and clean!
 This tag specifies a line break.
 
 ```html
-hello <br />
+hello <br>
 hi
 ```
 
@@ -217,8 +222,8 @@ The `<input>` tag supports [many different types of inputs](https://developer.mo
 
 ```html
 <form>
-	<input type="text" placeholder="write stuff here" />
-	<input type="range" />
+	<input type="text" placeholder="write stuff here">
+	<input type="range">
 </form>
 ```
 
