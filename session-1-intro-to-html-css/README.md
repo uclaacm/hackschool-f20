@@ -14,6 +14,7 @@
 ## What we'll be learning today
 
 - [Basic Dev Environment Setup](#basic-dev-environment-setup)
+- [What is Web Development?](#what-is-web-development)
 - [HTML](#html)
 - [CSS](#css)
 
@@ -94,14 +95,16 @@ What other tags can we find?
 
 1. Make a new folder and open it in your preferred text editor.
 2. In the folder, create a new file named `index.html`
-3. Copy and paste the following code into your file, and Save.
-   ```html
-   <!DOCTYPE html>
-   <html>
-     <head></head>
-   	 <body></body>
-   </html>
-   ```
+3. Add the following code into this file, and Save.
+```html
+<!DOCTYPE html>
+<html>
+   <head>
+   </head>
+   <body>
+   </body>
+</html>
+```
 
 #### Whitespace and Indentation
 
@@ -119,14 +122,15 @@ Try typing some lines of text in the `<body>` section. For example:
 Whitespace and indentation do not matter in HTML. However, indenting your code
 neatly makes it more readable and clean!
 
-#### Tag: `<br>`
+#### Tag: Line Break
 
-This tag specifies a line break.
+The `<br />` tag specifies a line break.
 
 ```html
 hello <br />
 hi
 ```
+- this tag is self-closing, which means it does not need a corresponding closing tag!
 
 #### Comments
 
@@ -145,7 +149,7 @@ The `<title>` tag is used to define the title for the page. This is the title
 that labels the tab in your browser and is also used for search results.
 
 Since this tag doesn't define any content that should appear in the webpage
-itself, we should put it in the `<head>` section.
+itself, it belongs in the `<head>` section.
 
 ```html
 <title>my amazing website</title>
@@ -194,17 +198,15 @@ specified with an `href` **attribute**.
 ```html
 <a href="https://github.com">this is a link to GitHub</a>
 ```
+- attributes define other characteristics or properties of an HTML element
+  - they consist of a name/value pair: `name="value"`
 
 #### Tag: `<img>`
 
 You can use the `<img>` tag to insert an image, specified by the `src` attribute. This source can be either an online image URL or a path to a local image.
 
 ```html
-<img
-	src="https://i.pinimg.com/originals/a1/5e/9c/a15e9cdcdcc803865dcb229e2d3c5e62.jpg"
-	alt="dog"
-	height="200px"
-/>
+<img src="https://i.pinimg.com/originals/a1/5e/9c/a15e9cdcdcc803865dcb229e2d3c5e62.jpg" alt="dog" height="200px" />
 <img src="cat.jpg" alt="cat" />
 ```
 
