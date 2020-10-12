@@ -36,6 +36,24 @@ but here are some alternatives:
 
 ---
 
+## What is Web Development?
+
+When you go to a URL in your browser and press "Enter", your computer makes a
+request to another computer (called a server) for the webpage you're trying
+to load. The server will send your computer some files that represent the
+webpage, and your browser uses those files to render the webpage.
+
+![](images/clientserver.png)
+
+You can actually see the files being transferred if you use the Network tab
+in your Chrome developer tools!
+
+Developers build websites by writing the code that describes what should be
+shown in the browser. The foundational languages for web development are HTML,
+CSS, and JavaScript. Today, we'll be learning some introductory HTML and CSS.
+
+---
+
 ## HTML
 
 ### What is HTML?
@@ -51,12 +69,6 @@ corrections as well as typographic instructions: make this heading larger, make
 that word bold, etc. Similarly, we use "tags" in HTML to mark different parts
 of our documents. These tags are used to describe the **structure** and
 **content** of a page.
-
-> HTML tags do not describe the style or appearance of a page, that's the job
-> of CSS. Why have this separation? There are several reasons, including the following:
->
-> - Different users have different devices/displays which may require the content to be formatted differently
-> - Some people use screen readers, and HTML tags provide useful contextual and structural information
 
 ### What does HTML look like?
 
@@ -86,8 +98,8 @@ What other tags can we find?
    ```html
    <!DOCTYPE html>
    <html>
-   	<head></head>
-   	<body></body>
+     <head></head>
+   	 <body></body>
    </html>
    ```
 
@@ -112,16 +124,19 @@ neatly makes it more readable and clean!
 This tag specifies a line break.
 
 ```html
-hello <br>
+hello <br />
 hi
 ```
 
 #### Comments
 
-Comments in HTML are surrounded by `<!--` and `-->`.
+Comments in HTML are surrounded by `<!--` and `-->`, and do not appear on the rendered view of the webpage.
 
 ```html
 <!-- a comment in HTML -->
+<!-- comments
+can also
+be multiline -->
 ```
 
 #### Tag: `<title>`
@@ -138,7 +153,8 @@ itself, we should put it in the `<head>` section.
 
 #### Tag: Headers
 
-There are 6 header tags from `<h1>` to `<h6>`. The `<h1>` tag is the largest/most important, while the `<h6>` tag is the smallest/least important.
+There are 6 header tags from `<h1>` to `<h6>`. The `<h1>` tag is the
+largest/most important, while the `<h6>` tag is the smallest/least important.
 
 Header tags are used for section headers or other important information.
 
@@ -156,8 +172,11 @@ The `<p>` or paragraph tag indicates paragraphs.
 <p>this is another paragraph</p>
 ```
 
-- You can use the `<strong>` and `<em>` tags to indicate that the enclosed text is "strong" or should be "emphasized".
-  - You might be wondering: Doesn't this change the style? I thought HTML isn't supposed to specify style! For more on that, read [this Stack Overflow answer](https://stackoverflow.com/a/271776).
+- You can use the `<strong>` and `<em>` tags to indicate that the enclosed text
+  is "strong" or should be "emphasized".
+  - You might be wondering: Doesn't this change the style? I thought HTML isn't
+    supposed to specify style! For more on that, read [this Stack Overflow
+    answer](https://stackoverflow.com/a/271776).
 
 #### Tag: `<button>`
 
@@ -189,7 +208,7 @@ You can use the `<img>` tag to insert an image, specified by the `src` attribute
 <img src="cat.jpg" alt="cat" />
 ```
 
-- the `<img>` tag does not require a closing tag
+- the `<img>` tag is self-closing
 - the `<img>` tag also has other attributes you can specify
   - `alt`: alternate text to describe an image
   - `height`: set the height of the image
@@ -220,27 +239,43 @@ The `<input>` tag supports [many different types of inputs](https://developer.mo
 
 ```html
 <form>
-	<input type="text" placeholder="write stuff here">
-	<input type="range">
+  <input type="text" placeholder="write stuff here" />
+  <input type="range" />
+  <input type="submit" />
 </form>
 ```
 
-- `<input>` tags don't have closing tags
+- `<input>` tags are self-closing
+- the `<form>` tag groups `<input>` elements that can be submitted together
+
+#### Tag: `<div>` and `<span>`
+
+These tags are somewhat special, in that they don't describe the content of the
+page (compared to `<h1>` which labels a header, `<a>` which makes a link, etc.).
+Instead, they are used to group chunks of HTML. This might not seem particularly
+useful at the moment, but it will be important when we learn CSS.
+
+```html
+<div>
+  <h1>hello</h1>
+  <p>html is <span>fun</span></p>
+</div>
+```
 
 ### HTML Activity
 
-Make a basic website about yourself! Feel free to look at [this list of HTML
+Make a basic website about something! Feel free to look at [this list of HTML
 elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and
 experiment with various HTML tags and attributes.
 
-Some ideas for things you can include in your webpage are:
+Ideas for what to make:
 
-- pictures of pets
-- favorite foods
-- hobbies
-- fun facts
-- links to social media
-- whatever you want!
+- a personal website with information about you
+- a website for your pet
+- an info page about something! (a hobby, your favorite animal, etc.)
+
+Example - a boba review page:
+![](images/boba_website.jpg) 
 
 ---
 
