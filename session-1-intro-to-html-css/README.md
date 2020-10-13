@@ -40,9 +40,10 @@ but here are some alternatives:
 ## What is Web Development?
 
 When you go to a URL in your browser and press "Enter", your computer makes a
-request to another computer (called a server) for the webpage you're trying
-to load. The server will send your computer some files that represent the
-webpage, and your browser uses those files to render the webpage.
+request to another computer (called a server) for the webpage you're trying to
+load. The server will send your computer some files (typically HTML, CSS, and
+JavaScript) that represent the webpage, and your browser uses those files to
+render the webpage.
 
 ![](images/clientserver.png)
 
@@ -105,6 +106,10 @@ What other tags can we find?
    </body>
 </html>
 ```
+4. Look for the `index.html` file in the File Explorer/Finder, and double click
+   to open it using Chrome.
+5. After making edits to an html file, be sure to save it and refresh the page
+   to see your updates.
 
 #### Whitespace and Indentation
 
@@ -257,6 +262,10 @@ page (compared to `<h1>` which labels a header, `<a>` which makes a link, etc.).
 Instead, they are used to group chunks of HTML. This might not seem particularly
 useful at the moment, but it will be important when we learn CSS.
 
+- You can think of `<div>` as a box that contains the elements within. 
+- On the other hand, `<span>` is like using a highlighter in your notes (it
+  doesn't make a box).
+
 ```html
 <div>
   <h1>hello</h1>
@@ -277,7 +286,7 @@ Ideas for what to make:
 - an info page about something! (a hobby, your favorite animal, etc.)
 
 Example - a boba review page:
-![](images/boba_website.jpg) 
+![](images/boba_website.jpg)
 
 ---
 
