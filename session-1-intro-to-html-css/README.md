@@ -272,22 +272,6 @@ useful at the moment, but it will be important when we learn CSS.
   <p>html is <span>fun</span></p>
 </div>
 ```
-
-### HTML Activity
-
-Make a basic website about something! Feel free to look at [this list of HTML
-elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and
-experiment with various HTML tags and attributes.
-
-Ideas for what to make:
-
-- a personal website with information about you
-- a website for your pet
-- an info page about something! (a hobby, your favorite animal, etc.)
-
-Example - a boba review page:
-![](images/boba_website.jpg)
-
 ---
 
 ## CSS
@@ -298,7 +282,7 @@ CSS stands for Cascading Style Sheets.
 
 **Style sheets** are collections of style rules that specify the "look and feel" of a webpage's content. We apply these style rules to HTML tags.
 
-**Cascading** is a bit more complicated but essentially just refers to how if multiple stylesheets are being used for one piece of HTML, the chosen rule is determined in a "cascading" fashion. Meaning more specific rules take priority over more general rules.
+**Cascading** is a bit more complicated but essentially just refers to how if multiple style rules are being used for one piece of HTML, the chosen rule is determined in a "cascading" fashion. Meaning more specific rules take priority over more general rules.
 
 ### Let's talk about CSS Style Rules
 
@@ -314,13 +298,26 @@ Let's break down what exactly each of these three components are:
 
 The CSS selector determines which HTML elements on the page are affected by the rule being defined. In other words, the styles specified in the rule will be applied to your "selected" element(s).
 
-In the example shown in the image above, the selector is `body`. This means the style in this rule will be applied to the corresponding `<body>` tag in the HTML file.
+
+For example, if we have the rule:
+```css
+p {
+  color: red;
+}
+```
+then the selector here is `p` which means that the styles in this rule will be applied to any `<p>` tags in the HTML file.
 
 #### Properties
 
 Every element has a set of characteristics called properties that can be manipulated and styled. Including properties in your CSS rule means you want to specify how those properties look for your selected element(s).
 
-In the example, we have the property `color` which refers to the color of any text within a given element.
+In the rule:
+```css
+p {
+  color: red;
+}
+```
+we have the property `color` which refers to the color of any text within a given element.
 
 Briefly, here are some basic properties in CSS. You can find a full list [here](https://www.w3schools.com/cssref/), **don't bother memorizing**:
 
@@ -333,7 +330,13 @@ Briefly, here are some basic properties in CSS. You can find a full list [here](
 
 Each property field in your CSS rule must be supplied a value. These values specify exactly how you want to style that particular property.
 
-In the example, we have a value of `red` supplied to the property `color`. This will make all text in the `<body>` tag red.
+Again, in our example:
+```css
+p {
+  color: red;
+}
+```
+we have a value of `red` supplied to the property `color`. This will make all text in `<p>` tags red.
 
 ### Linking your CSS to your HTML file
 
@@ -351,15 +354,15 @@ Your HTML file should look something like this afterwards:
 
 Once you've linked the HTML and CSS files you should be able to see the appearance of your website change if there are any existing style rules in your CSS file.
 
-For example, if your CSS file contained
+For example, if your CSS file contained:
 
 ```css
-body : {
+h1 {
 	color: red;
 }
 ```
 
-then all the text in your webpage should turn red.
+then all the text in `<h1>` tags on the webpage should turn red.
 
 ### CSS Classes and IDs
 
@@ -369,7 +372,7 @@ This is where the concept of CSS Classes and IDs comes into play.
 
 #### CSS Classes
 
-CSS Classes are used to define a group of elements that you want to apply the same styles to. There is no limit to how many elements or what kind of elements can be a member of the class.
+Classes are used to define a group of elements that you want to apply the same styles to. There is no limit to how many elements or what kind of elements can be a member of the class.
 
 In HTML, we specify an element is part of a class by adding the `class` attribute to it. For example:
 
@@ -385,7 +388,7 @@ To define the style rule for classes, we use a special selector of the following
 }
 ```
 
-`myclass` can be replaced with any identifier you want, as long as the HTML element's class matches the same name. We now have a style rule that can be applied to any group of elements you choose. All you have to do is add the corresponding class attribute.
+`myclass` can be replaced with any identifier you want (ex: `.thisisanamazingclassname`), as long as the HTML element's class matches the same name. We now have a style rule that can be applied to any group of elements you choose. All you have to do is add the corresponding class attribute.
 
 #### CSS IDs
 
@@ -405,8 +408,123 @@ To define the style rule for an id, we use the following special selector:
 }
 ```
 
-Just like with classes, `myid` can be replaced with any identifier you want. However, unlike classes, your ID must be unique for each element. With this, we can now apply styles to one specific element on the page.
+Just like with classes, `myid` can be replaced with any identifier you want (ex: `#iloveboba`). However, unlike classes, your ID must be unique for each element. With this, we can now apply styles to one specific element on the page.
 
-### CSS Activity
+### Combining CSS Selectors
+Another way you can select specific groups of elements to style is by combining selectors when creating style rules. 
 
-Now make some style rules that you can apply to the website you made from the HTML activity! Feel free to use [this list of basic CSS properties](http://web.simmons.edu/~grabiner/comm244/weekthree/css-basic-properties.html) and experiment with different values/properties.
+There are many, many ways to combine selectors to create new ones but we will just go over two simple examples.
+
+#### Tag + Class
+One way you can combine selectors is to put together an HTML tag selector and a class selector. A style rule with this selector would look something like this:
+```css
+h1.jumboheader {
+  font-size: 80px;
+}
+```
+The above style rule is applied to all `<h1>` tags with class `jumboheader`. In other words, the styles would show up on HTML elements that look like:
+```html
+<h1 class="jumboheader"></h1>
+```
+
+#### Class + Class
+Another way to combine selectors is to simply put two classes together. This selector looks something like:
+```css
+.danger-text.jumbo-sized {
+  text-transform: uppercase;
+}
+```
+The above style rule would apply to any HTML element that had both classes. Meaning any HTML element that looks like:
+```html
+<div class="danger-text jumbo-sized"></div>
+```
+
+There are many other ways to comibine selectors, some of which we will also be going over in our Advanced CSS workshop later in the quarter!
+
+### Revisiting "Cascading" Styles
+Now that we have a better understanding of style rules and the different selectors, let's revisit our understanding of the "Cascading" part of CSS.
+
+We said before that "cascading" refers to how more specific style rules take priority over more general ones. Let's put this in the context of selectors so we can think about this more intuitively.
+
+Let's say we have the following style rule somewhere in our css file:
+
+```css
+body {
+  color: red;
+}
+```
+
+This rule makes all text red within the `<body>` tag. So for example, if our HTML had:
+
+```html
+<body>
+  <h1>Hello, world!</h1>
+  <p>Welcome to my website!</p>
+  <p>Feel free to browse around...</p>
+</body>
+```
+The style rule above would make all text in the `<h1>` and `<p>` tags red.
+
+However, say we also have the following style rule:
+```css
+p {
+  color: black;
+}
+```
+
+Now we have two style rules that could be applied to the `<p>` tag. CSS will choose the style rule that selects `p` because it is more specific than the style rule which selects `body`.
+
+Furthermore, if we applied a class `myclass` to one of the `<p>` tags and then defined the style rule:
+```css
+.myclass {
+  color: blue;
+}
+```
+then the text of that paragraph would be blue since the class selector is more specific than the tag selector.
+
+This increased specificity extends to combined selectors, multiple classes, etc. all the way to the most specific selector being an id selector.
+
+Therefore, this is the notion of "cascading" styles. Since many style rules can exist, but we prioritize one in a cascading fashion, based on its level of specificity.
+
+### Fun with Google Fonts!
+Now let's take a slight detour and have some fun with different fonts. 
+
+In web development, there are only a handful of fonts that are guaranteed to be available across all systems/browsers. These fonts are called [web safe fonts](https://developer.mozilla.org/en-US/docs/Learn/CSS/Styling_text/Fundamentals#Web_safe_fonts).
+
+In order to get access to other fonts, we must import/link them from somewhere else. Today, we will use [Google Fonts](fonts.google.com) to import and use a font in our webpage.
+
+Here's how to do it:
+1. Go to fonts.google.com
+1. Find the font you want
+1. Click on it and then add your desired styles
+1. In the top right, there is a button to view your selected styles
+1. Click on the **Embed** tab
+1. Copy the `<link>` tag into your HTML file's `<head>`
+1. Then add the corresponding `font-family` property to a CSS rule
+
+The `<link>` should look something like: 
+```html
+<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
+```
+
+and your css rule should look something like: 
+```css
+body {
+  font-family: 'Charmonman', cursive; 
+}
+```
+
+### Do-It-Yourself Activity
+
+Make a basic website about something! Feel free to look at [this list of HTML
+elements](https://developer.mozilla.org/en-US/docs/Web/HTML/Element) and
+experiment with various HTML tags and attributes. Alse feel free to use [this list of basic CSS properties](http://web.simmons.edu/~grabiner/comm244/weekthree/css-basic-properties.html) and experiment with different values/properties.
+
+Ideas for what to make:
+
+- a personal website with information about you
+- a website for your pet
+- an info page about something! (a hobby, your favorite animal, etc.)
+
+Example - a boba review page:
+![](images/boba_website.jpg)
