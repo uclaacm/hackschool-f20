@@ -4,11 +4,16 @@ body {
 
 h1 {
 	font-size: 48px;
+	text-transform: uppercase;
 }
 
 p {
 	color: black;
 	font-size: 16px;
+}
+
+p.right {
+	text-align: right;
 }
 
 .myclass {
@@ -23,4 +28,30 @@ p {
     border-style: solid;
     border-color: black;
     */
+}
+
+#special-link {
+	text-decoration: none;
+}
+
+.spooky {
+	font-family: 'Gochi Hand', cursive;
+}
+
+.jumbo {
+	font-size: 72px;
+}
+
+.spooky.jumbo {
+	color: orange;
+}
+
+button.spooky {
+	font-size: 24px;
+	background-color: orange;
+	border-radius: 50%;
+	height: 200px;
+	width: 200px;
+	padding: 20px;
+	margin: 10px;
 }
