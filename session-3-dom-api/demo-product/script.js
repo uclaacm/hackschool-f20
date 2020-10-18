@@ -13,3 +13,9 @@ console.log("Here is the clock face element:");
 console.log(myClockFace);
 console.log("Here is the button element:");
 console.log(myButton);
+
+const alarmGoesOff = () => {
+    myClockFace.innerHTML = "Wake up!!!!";
+};
+
+setTimeout(alarmGoesOff, 3 * 1000);
