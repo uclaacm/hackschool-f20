@@ -30,8 +30,8 @@
 
 
 Today we will base our workshop off some starter code in
-[demo-starter](/demo-starter). If you would like to follow along, download
-the file! It has a HTML and a CSS file. If you open the HTML file in the
+[demo-starter](/demo-starter). If you would like to follow along, [download
+the file](/demo-starter.zip)! It has a HTML and a CSS file. If you open the HTML file in the
 browser, it looks like this:
 
 <div align=center>
