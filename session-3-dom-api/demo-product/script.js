@@ -4,7 +4,7 @@ const myClockFace = document.querySelector("#clock-face");
 const myButton = document.querySelector(".btn");
 const body = document.querySelector("body");
 
-myClockFace.innerHTML = "23:59:59";
+myClockFace.innerHTML = "23:59:59 PM";
 myButton.style.color = "red";
 myButton.style.fontSize = "2em";
 body.style.backgroundColor = "#ffb1b1";
@@ -22,3 +22,9 @@ const tick = () => {
 
 // setTimeout(tick, 3 * 1000);
 setInterval(tick, 1000);
+
+const onButtonClick = () => {
+    body.style.backgroundColor = "#b1b1ff";
+};
+
+myButton.addEventListener("click", onButtonClick);
