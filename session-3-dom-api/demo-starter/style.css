@@ -1,0 +1,21 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+}
+
+#clock-face {
+  font-size: 6em;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 700;
+}
+
+.btn-container {
+  margin-top: 48px;
+}
