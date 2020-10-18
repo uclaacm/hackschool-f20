@@ -2,10 +2,12 @@ console.log("If you see this in browser, that means our script is running.");
 
 const myClockFace = document.querySelector("#clock-face");
 const myButton = document.querySelector(".btn");
+const body = document.querySelector("body");
 
 myClockFace.innerHTML = "23:59:59";
 myButton.style.color = "red";
 myButton.style.fontSize = "2em";
+body.style.backgroundColor = "#ffb1b1";
 
 console.log("Here is the clock face element:");
 console.log(myClockFace);
