@@ -23,8 +23,8 @@ const tick = () => {
 // setTimeout(tick, 3 * 1000);
 setInterval(tick, 1000);
 
-const onButtonClick = () => {
+const setBackgroundColorToPurple = () => {
     body.style.backgroundColor = "#b1b1ff";
 };
 
-myButton.addEventListener("click", onButtonClick);
+myButton.addEventListener("click", setBackgroundColorToPurple);
