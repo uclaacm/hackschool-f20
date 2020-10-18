@@ -26,6 +26,7 @@
   + [Scheduling for things to happen](#scheduling-for-things-to-happen)
   + [Listening and reacting to events](#listening-and-reacting-to-events)
 + [Summary](#summary)
++ [⚡️ Challenges](#️-challenges)
 
 
 Today we will base our workshop off some starter code in
@@ -318,3 +319,29 @@ Today, we learned:
 - how to manipulate elements
 - how to schedule function calls regularly with `setInterval`
 - how to listen for events with `addEventListener`
+
+You have learned so much just by building a clock with JavaScript + DOM.
+You can find the complete code in the [demo-product folder](/demo-product)
+if you need some references.
+
+## ⚡️ Challenges
+
+Here are some challenges for you. 
+
+<!-- omit in toc -->
+### Challenge 1: our clock doesn't start right
+
+When we open or refresh our page, our clock doesn't start with the right
+time. There seems to be a one-second delay before our clock gets updated.
+How do we solve that problem?
+
+<!-- omit in toc -->
+### Challenge 2: go crazy with the clock
+
+Our clock is boring, can we make it such that when the clock ticks, we get a different background color (maybe a random number generator can help)?
+
+But at the same time we want to clock to be normal when people's around so
+they don't think we are crazy. Can we change the button such that it sets the
+background to white, and the color shouldn't change on tick. We can this
+"normal mode". When you are in "normal mode" you can also press the button to
+change the clock back to "crazy mode" so it changes color on every tick.
