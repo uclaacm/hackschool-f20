@@ -14,8 +14,11 @@ console.log(myClockFace);
 console.log("Here is the button element:");
 console.log(myButton);
 
-const alarmGoesOff = () => {
-    myClockFace.innerHTML = "Wake up!!!!";
+const tick = () => {
+    const date = new Date();
+    const time = date.toLocaleTimeString('en-US');
+    myClockFace.innerHTML = time;
 };
 
-setTimeout(alarmGoesOff, 3 * 1000);
+// setTimeout(tick, 3 * 1000);
+setInterval(tick, 1000);
