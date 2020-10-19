@@ -285,12 +285,15 @@ for (const element of myArray) {
 Above is an example of how we would use a `for-of` loop on an array. Let's break this down.
 
 The first part of the `for` statement creates a variable called `element`. This variable will be used to reference the different elements in the array as the loop runs.
+
 ![](images/for-of-1.png)
 
 We then reference which array we want to loop through:
+
 ![](images/for-of-2.png)
 
 Everything in the following code block is called the "loop body" and will run each time the loop repeats.
+
 ![](images/for-of-3.png)
 
 To read this statement literally, you can say "for every element of myArray, perform the following actions".
