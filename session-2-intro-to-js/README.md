@@ -384,7 +384,8 @@ That's where functions come in!
 
 A function is something that performs an action (this sounds horribly vague,
 but hopefully some examples help clear things up). A function can have inputs
-(we call them **arguments**), and a function can **return** a value.
+(we call them **arguments**), and a function can have an output (we then say
+that it **returns** a value).
 
 Let's see what functions look like! There are two ways to write functions in
 JavaScript:
@@ -553,9 +554,12 @@ const bobaBudget = (budget, numBoba) => {
 };
 ```
 
-Note: We can create variables inside of our functions! This can make it easier
-to read and understand what our function does. Try to give your variables and
-functions informative names to make them easier to understand.
+Note: 
+- In our `console.log`, we added a number to strings! This works because JavaScript
+  converts the number to a string and the joins the strings together.
+- We can create variables inside of our functions! This can make it easier to
+  read and understand what our function does. Try to give your variables and
+  functions informative names to make them easier to understand.
 
 Let's try calling our function:
 
@@ -565,7 +569,75 @@ bobaBudget(100, 2);
 
 #### Practice
 
+What will get printed when the code in each question is run?
 
+1. ```js
+   const foo = (n) => {
+     return n + 2
+   };
+
+   const mystery = (n) => {
+     return foo(n * 2) + foo(n)
+   };
+   console.log(mystery(10));
+   ```
+2. ```js
+   const peep = (s) => {
+     console.log(s + " peep");
+     return "peep";
+   };
+
+   const baz = (s) => {
+     console.log(peep(s));
+   };
+
+   baz("Jamie");
+   ```
+3. ```js
+   const yep = (n) => {
+     return n + 2;
+   };
+   const oh = (n) => {
+     return n * 3;
+   };
+   const pop = (n) => {
+     return n - 7;
+   };
+   const yop = (y, o, p) => {
+     return yep(y) + oh(o) + pop(p);
+   };
+
+   console.log(yop(5, 2, 3));
+   ```
+4. ```js
+   const nah = (s) => {
+     console.log(s + s);
+   };
+   const nope = (s) => {
+     console.log(s + "!!!");
+   };
+   const no = (en, oh) => {
+     nah(oh);
+     nope(en);
+   };
+   no("jam", "bred");
+   ```
+
+<details>
+   <summary>Solutions:</summary>
+
+   1. `34`
+   2. ```
+      "Jamie peep"
+      "peep"
+      ```
+   3. `9`
+   4. ```
+      "bredbred"
+      "jam!!!"
+      ```
+
+</details>
 
 ### Conditionals
 
