@@ -124,47 +124,47 @@ booleans, and strings.
 #### Numbers
 
 ```js
-420 // integers
-3.14159263 // decimals
--273.15 // negative numbers
-6.02e23 // we can use scientific notation, too!
+420         // integers
+3.14159263  // decimals
+-273.15     // negative numbers
+6.02e23     // we can use scientific notation, too!
 ```
 
 We can also perform operations on values:
 
 ```js
 /* arithmetic */
-> 6 + 9 // addition
+> 6 + 9   // addition
 < 17
 
-> 6 - 9 // subtraction
+> 6 - 9   // subtraction
 < -3
 
-> 6 * 9 // multiplication
+> 6 * 9   // multiplication
 < 54
 
-> 6 / 9 // division
+> 6 / 9   // division
 < 0.6666666666666666
 ```
 
 ```js
 /* comparision */
-> 5 === 6 // equality
+> 5 === 6   // equality
 < false
 
-> 5 !== 6 // inequality
+> 5 !== 6   // inequality
 < true
 
-> 5 < 6 // less than
+> 5 < 6     // less than
 < true
 
-> 5 > 6 // greater than
+> 5 > 6     // greater than
 < false
 
-> 5 <= 6 // less than or equal to
+> 5 <= 6    // less than or equal to
 < true
 
-> 5 >= 6 // greater than or equal to
+> 5 >= 6    // greater than or equal to
 < false
 ```
 
@@ -300,11 +300,11 @@ let age = 21;
 #### Using Variables
 
 ```js
-let name = "jamie";
-console.log("Hello, " + name)
+let myName = "jamie";
+console.log("Hello, " + myName);
 
 let x = 2;
-console.log(x * x)
+console.log(x * x);
 ```
 
 #### Constants
