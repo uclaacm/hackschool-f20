@@ -187,3 +187,34 @@ bobaOrder.includeBoba = true;
 
 console.log(bobaOrder);
 
+const bobaShop = {
+    name: "ItsBobaTime",
+    location: "Westwood, CA",
+    isOpen: true,
+    takeOrder: (bobaOrder) => {
+        console.log("Place an order for " + bobaOrder.type +
+            " with " + bobaOrder.iceLevel + " ice and " +
+            bobaOrder.sweetness + "% sweet.");
+        if (bobaOrder.includeBoba) {
+            console.log("Add boba");
+        }
+    }
+}
+bobaShop.takeOrder(bobaOrder);
+
+// ARRAYS
+
+let bobaFlavors = ["matcha", "rose", "oolong", "taro", "mango"];
+bobaFlavors.push("cucumber lime");
+bobaFlavors.pop();
+
+console.log(bobaFlavors[0]);
+console.log(bobaFlavors.length);
+console.log(bobaFlavors[bobaFlavors.length - 1]);
+
+let bobaPrices = [5.50, 4.75, 5.00, 4.25, 5.75];
+let totalBobaExpenses = 0;
+for (price of bobaPrices) {
+    totalBobaExpenses = totalBobaExpenses + price;
+}
+console.log("You have spent a total of $" + totalBobaExpenses + " on boba!");
