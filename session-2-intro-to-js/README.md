@@ -699,6 +699,81 @@ The way this code executes is top-down. First, the `if` condition will be tested
 
 NOTE: Using an `if-elseif` ladder implies that all of the different paths are mutually exclusive. Only one of the code blocks will actually run, after that we move on past the conditional statements. This means that if any of the conditions evaluates to `true` we do not keep testing the next condition, we just move on with the rest of our program.
 
+#### Practice 
+What is the output of the following pieces of code?
+
+1. ```js
+   const greeting = "hi"
+   if (greeting === "hi") {
+     console.log("hello!");
+   }
+   ```
+1. ```js
+   const testScore = 50;
+   if (testScore > 60) {
+     console.log("You passed!");
+   } 
+   else {
+     console.log("You failed :(");
+   }
+   ```
+1. ```js
+   const testScore = 95;
+   if (testScore >= 90) {
+     console.log("You got an A!");
+   }
+
+   if (testScore >= 80) {
+     console.log("You got a B!");
+   }
+
+   if (testScore >= 70) {
+     console.log("You got a C");
+   }
+
+   if (testScore >= 60) {
+     console.lof("You got a D");
+   }
+
+   if (testSCore < 60) {
+     console.log("You failed :(");
+   }
+   ```
+
+1. ```js
+   const testScore = 80;
+   if (testScore >= 90) {
+     console.log("You got an A!");
+   }
+   else if (testScore >= 80) {
+     console.log("You got a B!");
+   }
+   else if (testScore >= 70) {
+     console.log("You got a C");
+   }
+   else if (testScore >= 60) {
+     console.lof("You got a D");
+   }
+   else {
+     console.log("You failed :(");
+   }
+   ```
+
+<details>
+  <summary>Solutions: </summary>
+ 
+ 1. `"hello"`
+ 2. `"You failed :("`
+ 3. ```
+    "You got an A!"
+    "You got a B!"
+    "You got a C"
+    "You got a D"
+    ```
+4. `"You got a B!"`
+
+</details>
+
 ### Objects
 So far, we've only dealt with individual values being stored in variables for later use. But sometimes it is useful for us to want to keep a lot of related data together. For example, if you were recruiting for your club, you might want to group all of an applicant's information together.
 
@@ -812,6 +887,62 @@ applicant.accept(); // prints "Congrats on being accepted!"
 
 That's all the basics of objects, if you want to learn more you can visit the docs [here](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Basics).
 
+#### Practice 
+In all of the below questions, use the following object to determine the output:
+```js
+  const student = {
+    name: "Joe Bruin",
+    email: "joebruin@ucla.edu",
+    UID: 123456789,
+    isTrueBruin: true,
+    favDiningHall: "BPlate"
+  }
+```
+
+1. ```js
+   console.log(student.name);
+   console.log(student["UID"]);
+   ```
+2. ```js
+   if (student.isTrueBruin) {
+     console.log("Let's do an 8-clap for " + student.name + "!");
+   } else {
+     console.log("Check out our True Bruin traditions to become a True Bruin! Be True Be You!");
+   }
+   ```
+3. ```js
+   const goEatLunch = (diningHall) => {
+     console.log("I love to eat at " + diningHall);
+   }
+   goEatLunch(student.favDiningHall);
+   ```
+4. ```js
+   delete student["favDiningHall"];
+   student.name = "Josie Bruin";
+   student.UID = 987654321;
+   delete student.isTrueBruin;
+   console.log(student);
+   ```
+
+<details>
+  <summary>Solutions:</summary>
+
+  1. ```
+     "Joe Bruin"
+     "123456789"
+     ```
+  2. `"Let's do an 8-clap for Joe Bruin!"`
+  3. `"I love to eat at BPlate"`
+  4. ```js
+     {
+       name: "Josie Bruin",
+       email: "joebruin@ucla.edu",
+       UID: 987654321
+     }
+     ```
+
+</details>
+
 ### Arrays
 So now with objects we have a way to group related data together in a meaningful way (using key-value pairs). But this does not always make sense to do. For example if we ran a restuarant and collected rating scores out of 5 stars, it wouldn't make as much sense to assign some label/key to each rating. That would look something like:
 ```js
@@ -905,3 +1036,41 @@ The loop then repeats, this time `score` takes the value of the second element: 
 In this way, we can go through our entire array element by element and perform the same actions on each one no matter how large our array is.
 
 If you imagine our `testScores` array containing 1000 different test scores, then using this loop would be much easier than accessing each element individually using the `testScores[index]` method.
+
+#### Practice
+What is the output of the following code?
+
+1. ```js
+   const monthlyExpenses = ["150.30", "215.70", "170"];
+   console.log(monthlyExpenses[1]);
+   monthlyExpenses.push("240");
+   console.log(monthlyExpenses.length);
+   ```
+2. ```js
+   const ratings = [2, 5, 3, 4, 2];
+   console.log(ratings[ratings.length - 3]);
+   ```
+3. ```js
+   const greetings = ["hi", "yo", "what is up?", "what's gucci"];
+   greetings.pop();
+   for (greeting of greetings) {
+     console.log(greeting);
+   }
+   ```
+
+<details>
+  <summary>Solutions: </summary>
+
+  1. ```
+     "215.70"
+     "4"
+     ```
+  2. `"3"`
+  3. ```
+     "hi"
+     "yo"
+     "what is up?"
+     ```
+
+</details>
+
