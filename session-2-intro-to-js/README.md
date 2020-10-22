@@ -735,7 +735,7 @@ What is the output of the following pieces of code?
      console.lof("You got a D");
    }
 
-   if (testSCore < 60) {
+   if (testScore < 60) {
      console.log("You failed :(");
    }
    ```
@@ -917,10 +917,8 @@ In all of the below questions, use the following object to determine the output:
    goEatLunch(student.favDiningHall);
    ```
 4. ```js
-   delete student["favDiningHall"];
    student.name = "Josie Bruin";
    student.UID = 987654321;
-   delete student.isTrueBruin;
    console.log(student);
    ```
 

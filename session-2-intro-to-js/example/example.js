@@ -11,7 +11,7 @@ multiline comment
 
 420         // integers
 3.14159263  // decimals
--273.15     // negative numbers
+    - 273.15     // negative numbers
 6.02e23     // we can use scientific notation, too!
 
 // number operations
@@ -142,3 +142,48 @@ const bobaBudget = (budget, numBoba) => {
     console.log("You can buy " + canBuy + " more bobas.");
 };
 bobaBudget(100, 2);
+
+// CONDITIONALS
+
+// simple if statement
+const consumeBoba = (numBobas) => {
+    if (numBobas < 0) {
+        console.log("buy more boba now");
+    }
+    return numBobas - 1;
+}
+
+// if-else statement
+const drinkBoba = (numBobas) => {
+    if (numBobas < 10) {
+        console.log("sip carefully");
+    } else {
+        console.log("gulp down those bobas");
+    }
+}
+
+// if-elseif ladder
+const shouldIGetBoba = (money, drinksLeft) => {
+    if (money >= 5 && drinksLeft < 1) {
+        console.log("Absolutely, you're out of boba!!!");
+    }
+    else if (money >= 5 && drinksLeft >= 1) {
+        console.log("Maybe later... or soon");
+    }
+    else if (drinksLeft > 1) {
+        console.log("You can't get more boba, but at least you have " + drinksLeft + " bobas left. Savor them while you can!");
+    }
+    else {
+        console.log("Cry, you can't afford more boba and you don't have any left, there's nothing left for you");
+    }
+}
+
+// OBJECTS
+const bobaOrder = {};
+bobaOrder.type = "Roasted Oolong Milk Tea";
+bobaOrder.iceLevel = "Light";
+bobaOrder.sweetness = 50;
+bobaOrder.includeBoba = true;
+
+console.log(bobaOrder);
+
