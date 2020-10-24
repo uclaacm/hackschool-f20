@@ -46,15 +46,15 @@ you close the browser window, it is gone forever (like my ex. who am I
 kidding... I don't have one). So you would have to type it in the console
 again. Frustrating... no... actually we don't need to.
 
-Let's create a JavaScript file and name it `script.js`. Inside, we will put a
-line of simple JavaScript:
+Let's create a JavaScript file under the same folder that holds `index.html`
+and name it `script.js`. Inside, we will put a line of simple JavaScript:
 
 ```js
 console.log("If you see this in browser, that means our script is running.");
 ```
 
 To use this JavaScript code file in our webpage, we need to link it to our 
-HTML. Here we introduce a new HTML tag called `<script>`:
+HTML. Here, we introduce a new HTML tag called `<script>`:
 
 ```html
 <body>
@@ -81,7 +81,7 @@ represents documents as objects. In our case, our document is the HTML
 document. The object here refers to the JavaScript object that we learned
 last time.
 
-This means that we can store our HTML elements (each tag is an element) as a
+This means that we can store an HTML element (each tag is an element) as a
 variable in JavaScript and manipulate it as an object.
 
 Still sounds very vague right? Let's put this in concrete code. The DOM means
@@ -98,8 +98,7 @@ individual elements.
 
 ### Accessing individual elements
 
-"Access" means "getting hold of something", "get a reference of something",
-or "store something as a variable".
+"Access" means "getting hold of something" or "store something as a variable".
 
 `document` refers to the entire webpage. To access certain elements within
 the webpage, the `document` object provides a convenient method for us to
@@ -207,15 +206,13 @@ myButton.style.fontSize = "2em";
 
 ### A little detour: how are colors represented in a computer?
 
-Uptil now, we have been using the color nouns like "red", "blue", and
-"green". There can't be possibly enough words to describe every single color.
+Uptil now, we have been using the color nouns like "black", "pink", and
+"yellow". There can't be possibly enough words to describe every single color.
 Even if we do, we can't remember them. How does computer handles them then?
 
 You might know what RGB stands for: ~~Ridiculously
 Gigantic Baguette~~
-<span style="background: #ff000084;">Red </span>
-<span style="background: #00ff0084;">Green </span>
-<span style="background: #0000ff84;">Blue</span>.
+Red Green Blue.
 
 Different amounts of these 3 colors mixed together give you any color.
 In computer we represent RGB as 3 numbers ranging from 0 to 255. In
@@ -228,6 +225,8 @@ green = #00ff00
 blue  = #0000ff
 cyan  = #00ffff
 ```
+
+<img src="images/rgb-code.png" width="500px" alt="RGB code">
 
 Use a [color picker](https://www.google.com/search?q=color+picker) to pick
 the exact color that you want!
