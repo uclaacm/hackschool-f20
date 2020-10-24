@@ -11,9 +11,9 @@
 <!-- omit in toc -->
 ## Resources
 
-- [Slides](https://docs.google.com/presentation/d/1UZ6EJ3UNhUvtJgBLDvHp0iAZ_1ReLZrjov1a5ujeiT8/edit?usp=sharing)
+- [Slides](https://tinyurl.com/hackschool20-s3-slides)
 - [ACM Membership Attendance Portal](http://members.uclaacm.com/login)
-- 
+
 <!-- omit in toc -->
 ## What we'll be learning today
 
