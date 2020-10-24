@@ -112,19 +112,20 @@ console.log(document.querySelector("button"));
 
 Since our webpage contains a button, `document.querySelector("button")`
 returns an object representing that button. What is the string that we 
-pass in to `querySelector`? It is actually CSS selector. Recall from last time, we learned three ways to select elements in CSS:
+pass into `querySelector`? It is actually a CSS selector. Recall from last time, we learned three ways to select elements in CSS:
 
 ```css
 /* with tag name */
 button {
     color: blue;
 }
-/* with id */ 
+
+/* with an ID */
 #clock-face {
     font-size: 7em;
 }
 
-/* with class name */
+/* with the name of a class */
 .btn-container {
     margin-top: 48px;
 }
@@ -164,7 +165,7 @@ console.log(myButton);
 ```
 
 > 🚩 Checkpoint: You should be able to see your button and clock face element
-being outputted in the console.
+> being printed in the console.
 
 > 🧠 Big Brain Time: What happens if multiple elements match the selector?
 > 
@@ -176,21 +177,19 @@ being outputted in the console.
 > 
 > </details>
 
-<br>
 
 ### Manipulating the elements
 
-Just accessing the elements is no fun. With the elements represented as
-objects, we can manipulate them. We can change their style, content, and
+Just accessing the elements is no fun. With elements stored in variables, we will
+be able to _manipulate_ them. We can change their style, content, and
 force them into an existential crisis by deleting them (we are not gonna
 teach you the last one unfortunately).
-
 
 We can change the content of an element:
 
 ```js
 // inside script.js, after your "querySelector"s
-myClockFace.innerHTML = "23:59:59 PM"
+myClockFace.innerHTML = "23:59:59 PM";
 ```
 
 If you refresh your webpage, you should get the time "23:59:59 PM" instead,
@@ -218,7 +217,7 @@ Gigantic Baguette~~
 <span style="background: #00ff0084;">Green </span>
 <span style="background: #0000ff84;">Blue</span>.
 
-Different amount of these 3 colors mixed together give you any color.
+Different amounts of these 3 colors mixed together give you any color.
 In computer we represent RGB as 3 numbers ranging from 0 to 255. In
 hexadecimal (base 16), the range is from 00 to ff. Therefore, colors
 in CSS can also be written in 6 characters:
@@ -242,7 +241,7 @@ body.style.backgroundColor = "#ffb1b1";
 ```
 
 > 🚩 Checkpoint: You should be able to change the CSS style of elements using
-JavaScript.
+> JavaScript.
 
 ### Scheduling for things to happen
 
@@ -258,12 +257,12 @@ const tick = () => {
 ```
 
 - `new Date()` creates a new object representing the current date and time.
-Try printing it out.
+  Try printing it out with `console.log`.
 - the date object has a method called `toLocaleTimeString` which formats the
-time into a string according to a given locale (a language and a place). The
-US format is "00:00:00 AM".
+  time into a string according to a given locale (a language and a place, like `en-US`).
+  The default American English format is generally "00:00:00 AM".
 
-A method we can use is `setInterval`. It takes in a function and a time. It
+To make this function actually run every second, we can use `setInterval`. It takes in a function and a time interval, and
 schedules a call to that function with the frequency given by that time. 
 For example:
 
@@ -272,21 +271,22 @@ For example:
 setInterval(tick, 1000);
 ```
 
-This is going to call our tick function every 1000 milliseconds, or every 1 second. Therefore, our webpage behaves like a clock.
+This is going to call our tick function every 1000 milliseconds, or every 1 second. Our webpage now behaves like a clock.
 
 > 🚩 Checkpoint: Your webpage should be able to function like a clock now.
 
 ### Listening and reacting to events
 
-A user can sometimes interact with a webpage, by clicking around for example.
-HTML also contains elements like `button` that is used for interactions. But
-we haven't been able to react to user interactions.
+A user can sometimes interact with a webpage, for example by clicking on hyperlinks.
+HTML also contains elements like `button` designed for rich user interactions, but thus far
+we haven't yet made it react to stimuli.
 
 In JavaScript, user interactions are represented as events. For instance, if
 user press a button, it is called a "click" event. JavaScript listens for
 these events, and when the events fire, they trigger a function call.
 
-Let's suppose that we want to change the background color of our background
+Let's suppose that we want to change our background color to some other color 
+when the button is pressed.
 color to some other color when the button is pressed. We first declare a 
 function:
 
@@ -342,6 +342,6 @@ Our clock is boring, can we make it such that when the clock ticks, we get a dif
 
 But at the same time we want to clock to be normal when people's around so
 they don't think we are crazy. Can we change the button such that it sets the
-background to white, and the color shouldn't change on tick. We can this
+background to white, and the color shouldn't change on tick. We call this
 "normal mode". When you are in "normal mode" you can also press the button to
 change the clock back to "crazy mode" so it changes color on every tick.
