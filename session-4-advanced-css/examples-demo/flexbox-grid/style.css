@@ -1,0 +1,45 @@
+/* 
+    Flexbox example
+    TODO: turn flex-container into a flexbox container, and align the flex-item divs such that all space
+    is divided equally between them horizontally, and they are aligned vertically at the center.
+*/
+
+.flex-container {
+    background-color: purple;
+}
+
+.flex-item {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    margin: 10px;
+}
+
+/* Note: passing "even" or "odd" into nth-child()'s parentheses is a rule that applies to every element
+whos corresponding number is even/odd */
+.flex-item:nth-child(even) {
+    height: 200px;
+}
+
+/*
+    Grid example
+    TODO: turn grid-container into a grid container, and create a grid template with 4 colummns and 3
+    rows. Then, center the grid container, align each grid item so that they are at the end of their 
+    cell horizontally, and at the center vertically.
+*/
+
+.grid-container {
+    background-color: blue;
+}
+
+.grid-item {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+/* Note: passing "even" or "odd" into nth-child()'s parentheses is a rule that applies to every element
+whos corresponding number is even/odd */
+.grid-item:nth-child(odd) {
+    height: 50px;
+}

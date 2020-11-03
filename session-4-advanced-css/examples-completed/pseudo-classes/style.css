@@ -1,0 +1,26 @@
+/*
+    Pseudo-class link example
+    TODO: change the hover color of the "pseudo-class-link" id to be pink
+*/
+/* Solution */
+#pseudo-class-link:hover {
+    color: pink;
+}
+
+/*
+    Pseudo-class keyword example
+    TODO: change the first, last, and 3th <p> tags to colors of your choice using the pseudo-class
+    keywords from the workshop.
+*/
+/* Solution */
+.pseudo-class-keyword:first-child {
+    color: pink;
+}
+
+.pseudo-class-keyword:last-child {
+    color: red;
+}
+
+.pseudo-class-keyword:nth-child(3) {
+    color: blue;
+}

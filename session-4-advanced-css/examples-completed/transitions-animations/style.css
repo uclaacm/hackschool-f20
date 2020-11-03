@@ -1,0 +1,64 @@
+/*
+    Transition example
+    TODO: create a transition to smoothly transition between the original and hovered state
+    of the div.
+    Follow-up: feel free to play around with the other transition properties!
+*/
+
+/*
+    Solution:
+        Apply the "transition" property and give it a property and duration (i.e. transition: width 2s;).
+            Then, on the hover pseuo-class, apply a different width from the one specified in the original
+            selector. Your sollution should now see a smooth transition between these two states!
+*/
+
+/* Beginning state */
+#transition {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: width 2s ease-out 0.5s;
+    /* Note: this is a shorthand way to declare the transition-property, transition-duration,
+    transition-timing-function, and transition-delay all at once! */
+}
+
+/* End state */
+#transition:hover {
+    width: 500px;
+}
+
+/*
+    Animation
+    TODO: create an animation that infinitely cycles through 4 background-colors.
+    Follow-up: feel free to play around with the other animation properties!
+*/
+
+/*
+    Solution:
+        First, create a keyframe that includes the 4 background colors you want to cycle through,
+        and the % progress they are applied at. Then, add the keyframe into the element you want
+        to apply the animation to (#animation in this case) using animation-name. Add a duration
+        for the animation using animation-duration.
+*/
+
+/* The animation code */
+@keyframes colors {
+    0% {background-color: red;}
+    25% {background-color: orange;}
+    50% {background-color: yellow;}
+    100% {background-color: green;}
+}
+
+/* The element to apply the animation to */
+#animation {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    animation-name: colors;
+    animation-duration: 4s;
+    /* Bonus properties you can play around with */
+    animation-iteration-count: infinite;
+    animation-direction: reverse;
+    animation-delay: 1s
+}
+

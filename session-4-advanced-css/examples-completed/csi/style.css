@@ -1,0 +1,66 @@
+/* 
+    Cascading example
+    There are two values set for background-color here. Which one will be applied? 
+*/
+
+/*
+    Answer: 
+        Green. According to Cascading, CSS applies rules in the order they are 
+        written, so the blue background color will overridden right after by green.
+*/
+
+div {
+    width: 100px;
+    height: 100px;
+}
+
+div {
+    background-color: blue;
+}
+
+div {
+    background-color: green;
+}
+
+/* 
+    Specificity example
+    The corresponding div in index.html will have all the below rules applied to it.
+    Which background-color will be used?
+*/
+
+/* 
+    Answer: Purple. 
+        According to Specificity, CSS will apply rules that are *more specific*
+        over those that are less specific. From less to more specific, the order of specificity 
+        is type selectors (i.e h1, p, body), class selectors, and id selectors. 
+*/
+
+#green-sux {
+    background-color: purple;
+}
+
+.no-purple-sux {
+    background-color: blue;
+}
+
+/*
+    Inheritance example
+    TODO: run the webpage once and note what it looks like. Then, add a color different to
+    gray to the span within the paragraph. What is the result?
+*/
+
+/*
+    Solution: 
+        You will notice that the span initially *inherits* the gray color from the parent
+        <p> tag. It is only when we specify another color the span should take (red in this case)
+        that the color gets overridden.
+*/
+
+#inheritance-p {
+    color: gray;
+}
+
+#inheritance-p > span {
+    font-weight: bold;
+    color: red;
+}

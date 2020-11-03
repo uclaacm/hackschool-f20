@@ -1,0 +1,31 @@
+/*
+    Transition example
+    TODO: create a transition to smoothly transition between the original and hovered state
+    of the div.
+    Follow-up: feel free to play around with the other transition properties!
+*/
+
+/* Beginning state */
+#transition {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+
+/* End state */
+
+/*
+    Animation
+    TODO: create an animation that infinitely cycles through 4 background-colors.
+    Follow-up: feel free to play around with the other animation properties!
+*/
+
+/* The animation code */
+
+/* The element to apply the animation to */
+#animation {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+}
+

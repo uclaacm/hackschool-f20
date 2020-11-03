@@ -9,7 +9,7 @@
 ## Resources
 
 - [Slides](https://docs.google.com/presentation/d/1i2n3sUXJCIcx33DxnykCrHaLLHNIM6OdozyEzDOY_LU/edit?usp=sharing)
-- [ACM Membership Attendance Portal]()(http://members.uclaacm.com/login)
+- [ACM Membership Attendance Portal](http://members.uclaacm.com/login)
 
 ## What we'll be learning today
 

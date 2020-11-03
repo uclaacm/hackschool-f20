@@ -1,0 +1,45 @@
+/* 
+    Cascading example
+    There are two values set for background-color here. Which one will be applied? 
+*/
+
+div {
+    width: 100px;
+    height: 100px;
+}
+
+div {
+    background-color: blue;
+}
+
+div {
+    background-color: green;
+}
+
+/* 
+    Specificity example
+    The corresponding div in index.html will have all the below rules applied to it.
+    Which background-color will be used?
+*/
+
+#green-sux {
+    background-color: purple;
+}
+
+.no-purple-sux {
+    background-color: blue;
+}
+
+/*
+    Inheritance example
+    TODO: run the webpage once and note what it looks like. Then, add a color different to
+    gray to the span within the paragraph. What is the result?
+*/
+
+#inheritance-p {
+    color: gray;
+}
+
+#inheritance-p > span {
+    font-weight: bold;
+}

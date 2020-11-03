@@ -1,0 +1,69 @@
+/* 
+    Flexbox example
+    TODO: turn flex-container into a flexbox container, and align the flex-item divs such that all space
+    is divided equally between them horizontally, and they are aligned vertically at the center.
+*/
+
+/*
+    Solution:
+        turning flex-container to flexbox container -> display: flex;
+        space is divided equally horizontally -> justify-content: space-between;
+        aligned vertically at the center -> align-items: center;
+*/
+.flex-container {
+    background-color: purple;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-item {
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    margin: 10px;
+}
+
+/* Note: passing "even" or "odd" into nth-child()'s parentheses is a rule that applies to every element
+whos corresponding number is even/odd */
+.flex-item:nth-child(even) {
+    height: 200px;
+}
+
+/*
+    Grid example
+    TODO: turn grid-container into a grid container, and create a grid template with 4 colummns and 3
+    rows. Then, center the grid container, align each grid item so that they are at the end of their 
+    cell horizontally, and at the center vertically.
+*/
+
+/* 
+    Solution:
+        turn grid-container into a grid container -> display: grid;
+        create a grid template with 4 columns and 3 rows -> grid-template-columns: (4 values);
+                                                            grid-template-rows: (3 values);
+        center the grid *container* -> justify-content: center;
+        align grid items at the end horizontally -> justify-items: end;
+        align grid items at the center vertically -> align-items: center;
+*/
+.grid-container {
+    background-color: blue;
+    display: grid;
+    grid-template-columns: 200px 300px 300px 200px;
+    grid-template-rows: 200px 250px 200px;
+    justify-items: end;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item {
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+}
+
+/* Note: passing "even" or "odd" into nth-child()'s parentheses is a rule that applies to every element
+whos corresponding number is even/odd */
+.grid-item:nth-child(odd) {
+    height: 50px;
+}
