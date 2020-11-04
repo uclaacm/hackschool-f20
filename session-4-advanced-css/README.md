@@ -687,5 +687,5 @@ With that, the last thing I'll leave you with a couple of helpful resources on b
 - Flexbox Froggy: https://flexboxfroggy.com/
 - Grid Garden: https://cssgridgarden.com/
 
-Congrats on making to the end of the README! If you would like to see a completed version of examples we worked on during the real workshop, feel free to visit [examples-completed](,examples-completed).
+Congrats on making to the end of the README! If you would like to see a completed version of examples we worked on during the real workshop, feel free to visit [examples-completed](./examples-completed).
 
