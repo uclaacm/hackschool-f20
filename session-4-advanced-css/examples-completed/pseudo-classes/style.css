@@ -1,9 +1,9 @@
 /*
     Pseudo-class link example
-    TODO: change the hover color of the "pseudo-class-link" id to be pink
+    TODO: change the hover color of the "my-link" id to be pink
 */
 /* Solution */
-#pseudo-class-link:hover {
+#my-link:hover {
     color: pink;
 }
 
@@ -13,14 +13,14 @@
     keywords from the workshop.
 */
 /* Solution */
-.pseudo-class-keyword:first-child {
+.my-lyrics:first-child {
     color: pink;
 }
 
-.pseudo-class-keyword:last-child {
+.my-lyrics:last-child {
     color: red;
 }
 
-.pseudo-class-keyword:nth-child(3) {
+.my-lyrics:nth-child(3) {
     color: blue;
 }

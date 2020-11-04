@@ -13,16 +13,37 @@
 
 ## What we'll be learning today
 
+- [Resources](#resources)
+- [What we'll be learning today](#what-well-be-learning-today)
 - [CSS Recap](#css-recap)
+  - [Using CSS](#using-css)
+  - [CSS Syntax](#css-syntax)
+  - [Selectors](#selectors)
 - [Advanced Style](#advanced-style)
   - [Cascading, Specificity, and Inheritance](#cascading-specificity-and-inheritance)
+    - [Cascading](#cascading)
+    - [Specificity](#specificity)
+    - [Inheritance](#inheritance)
   - [Pseudo-classes](#pseudo-classes)
+    - [Keywords](#keywords)
   - [Transitions](#transitions)
   - [Animations](#animations)
+    - [Syntax: Keyframes](#syntax-keyframes)
+    - [Syntax: Applying the Animation](#syntax-applying-the-animation)
 - [Layout](#layout)
   - [Why Use Flexbox or Grid?](#why-use-flexbox-or-grid)
   - [Flexbox](#flexbox)
+    - [Using Flexbox](#using-flexbox)
+    - [Flex Direction](#flex-direction)
+    - [Flex Axes](#flex-axes)
+    - [Justifying Content](#justifying-content)
+    - [Align Items](#align-items)
   - [Grid](#grid)
+    - [Using Grid](#using-grid)
+    - [Defining a Grid Template](#defining-a-grid-template)
+    - [Justify/Align Items](#justifyalign-items)
+    - [Justify/Align Content](#justifyalign-content)
+    - [Sneak Peak](#sneak-peak)
   - [Summary and Resources](#summary-and-resources)
 
 Provided in this folder is a folder I will use for demo purposes as a part of my workshop, called [examples-demo](./examples-demo). If you want to see the completed version that completes each of the todo's, take a look at [examples-completed](./examples-completed). Otherwise, [download the demo](./examples-demo.zip) here to attempt each problem yourself!
@@ -251,7 +272,7 @@ However, let's see what happens when we add that the `<span>` should take on a t
 
 #inheritance-p > span { /* this syntax refers to a span within #inheritance-p */
     font-weight: bold;
-		color: red; /* new line added */
+    color: red; /* new line added */
 }
 ```
 
@@ -277,10 +298,10 @@ selector:pseudo-class {
 
 where `selector` is the selector that the pseudo-class is a part of, and  `pseudo-class` is the aforementioned special state, i.e. `hovered` or `visited`.
 
-Here's an example for how we would change a link with ID `#pseudo-class-link` to have a hover color of pink:
+Here's an example for how we would change a link with ID `#my-link` to have a hover color of pink:
 
 ``` css
-#pseudo-class-link:hover {
+#my-link:hover {
     color: pink;
 }
 ```
@@ -288,7 +309,7 @@ Here's an example for how we would change a link with ID `#pseudo-class-link` to
 With the following HTML line:
 
 ``` html
-<a id="pseudo-class-link" href="https://crouton.net/">Crouton</a>
+<a id="my-link" href="https://crouton.net/">Crouton</a>
 ```
 
 We will now see the following in our browser:
@@ -303,10 +324,10 @@ There are certain pre-defined **keywords** for pseudo-classes that make it easy 
 
 ``` html
 <div>
-  <p class="pseudo-class-keyword">His palms spaghetti</p>
-  <p class="pseudo-class-keyword">Knees weak, arms spaghetti</p>
-  <p class="pseudo-class-keyword">There's vomit on his sweater spaghetti</p>
-  <p class="pseudo-class-keyword">Mom's already</p>
+  <p class="my-lyrics">Knees weak, arms spaghetti</p>
+  <p class="my-lyrics">There's vomit on his sweater spaghetti</p>
+  <p class="my-lyrics">His palms spaghetti</p>
+  <p class="my-lyrics">Mom's already</p>
 </div>
 ```
 
@@ -317,7 +338,7 @@ Here, we have 4 `<p>` tags within a `<div>` parent element. If we wanted to styl
 For example, if we want to change the text color of the first `<p>` to be pink, we can style the `first-child` pseudo-class:
 
 ``` css
-.pseudo-class-keyword:first-child {
+.my-lyrics:first-child {
     color: pink;
 }
 ```
@@ -325,7 +346,7 @@ For example, if we want to change the text color of the first `<p>` to be pink, 
 Similarly, if we want to change the text color of the last `<p>` in the `<div>` to be red, we can use the `last-child` pseudo-class:
 
 ``` css
-.pseudo-class-keyword:last-child {
+.my-lyrics:last-child {
     color: red;
 }
 ```
@@ -333,7 +354,7 @@ Similarly, if we want to change the text color of the last `<p>` in the `<div>` 
 Finally, if we want to specifically apply styles to the 3rd `<p>`, we can use the more expressive `nth-child()` pseudo-class, which takes in a number in its parentheses that corresponds to the number of the element inside a parent element, starting from 1. In our use case, this would look like:
 
 ``` css
-.pseudo-class-keyword:nth-child(3) {
+.my-lyrics:nth-child(3) {
     color: blue;
 }
 ```
@@ -401,8 +422,8 @@ div {
   width: 100px;
   height: 100px;
   background-color: red;
-  transition: width 2s ease-in 4s; /* transition-property, transition-duration, 
-  																	  transition-timing-function, transition-delay */
+  transition: width 2s ease-in 4s; 
+  /* transition-property, transition-duration, transition-timing-function, transition-delay */
 }
 ```
 
@@ -420,7 +441,7 @@ div {
 
 ### Animations
 
-**Animations**, as the name suggests, *animates* an HTML element in a user-defined way. It lets the element change from one style to another. If you're wondering why this definition sounds strangely similar to the one for transitions, that's because transitions are a *type of* animations that only allow changes from a beginning state to an end state that is triggered by some user interaction, llike a hover. Animations, however, allows us to add more expressive and possess more fine-grained control over the movable parts on our webpage.
+**Animations**, as the name suggests, *animate* an HTML element in a user-defined way. It lets the element change from one style to another. If you're wondering why this definition sounds strangely similar to the one for transitions, that's because transitions are a *type of* animations that only allow changes from a beginning state to an end state that is triggered by some user interaction, llike a hover. Animations, however, allows us to add more expressive and possess more fine-grained control over the movable parts on our webpage.
 
 Here's a GIF that shows the difference between what transitions and animations are capable of (I'm hoping you read that in your mind as gif, and not jif):
 
@@ -495,7 +516,7 @@ For the most part, we have only been working with the style of each individual e
 
 In order to understand the motivation behind using either Flexbox or Grid, we should first mention the way developers had to lay things out before them: the Jurassic era.
 
-Prior to Flexbox and Grid, if a developer wanted to get an element in the position they wanted, they had to use properties that included *floats* and *positions*. I will leave the details about these properties as an exercise to the reader, but the gist of it is that they were a very "hack-y" way of going about layout. Some layout requirements that seemed like a basic necessity, like vertically centering an element, or making child elements take an equal amount of width and height within a container, takes a lot of roundabout coding to get just right. Furthermore, these layouts were rigid, and they couldn't adapt to different screen sizes seamlessly. All in all, it was pretty painful.
+Prior to Flexbox and Grid, if a developer wanted to get elements into positions they wanted, they had to lay out these elements using tables from HTML. I will leave the details about these properties as an exercise to the reader, but the gist of it is that they were a very "hack-y" way of going about layout. Some layout requirements that seemed like a basic necessity, like vertically centering an element, or making child elements take an equal amount of width and height within a container, takes a lot of roundabout coding to get just right. Furthermore, these layouts were rigid, and they couldn't adapt to different screen sizes seamlessly. All in all, it was pretty painful. If you want to learn about it, you can take a look at this article talking about it [here](https://css-tricks.com/look-back-history-css/#the-pioneers-of-standards-based-design).
 
 When Flexbox and Grid came to popularity, their accessible interface helped address a lot of these layout grievances. For one, both are tools used for adaptive layout. With both, there is a notion of a parent container, and using these containers, you can flexibly deal with all child elements and how they are laid out within the container. Flexbox and Grid are two different solutions to the same problem, but they do have some distinct differences. For one, Flexbox is 1-dimensional, meaning we only deal with the layout of a row or column at once time. On the other hand, Grid is 2-dimensional, which means that *both* row and column are considered in layout.
 
