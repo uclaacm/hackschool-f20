@@ -15,15 +15,15 @@
 
 ## What we'll be learning today
 
-+ [What is Async?](#what-is-async?)
++ [What is Async?](#what-is-async)
     + [Introducing callbacks](#Introducing-callbacks)
-    + [One problem with callbacks](#one-problem-with-callbacks)(#one-problem-with-callbacks)
+    + [One problem with callbacks](#one-problem-with-callbacks)
 + [What are Promises?](#what-are-promises)
-+ [Extra Reading: async/await keywords](#extra-reading:-async/await-keywords)
++ [Extra Reading: async/await keywords](#extra-reading-async/await-keywords)
 + [Quick rundown on web APIs](#quick-rundown-on-web-apis)
     + [JSON vs JavaScript Objects](#json-vs-javascript-objects)
     + [fetch() function](#fetch()-function)
-+ [Demo time!](#demo-time!)
++ [Demo time!](#demo-time)
 + [💪 Challenge](#️-challenge)
 
 
