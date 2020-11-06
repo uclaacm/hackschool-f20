@@ -19,12 +19,12 @@
     + [Introducing callbacks](#Introducing-callbacks)
     + [One problem with callbacks](#one-problem-with-callbacks)
 + [What are Promises?](#what-are-promises)
-+ [Extra Reading: async/await keywords](#extra-reading-async/await-keywords)
++ [Extra Reading: async/await keywords](#extra-reading-asyncawait-keywords)
 + [Quick rundown on web APIs](#quick-rundown-on-web-apis)
     + [JSON vs JavaScript Objects](#json-vs-javascript-objects)
-    + [fetch() function](#fetch()-function)
+    + [fetch() function](#fetch-function)
 + [Demo time!](#demo-time)
-+ [💪 Challenge](#️-challenge)
++ [💪 Challenge](#️--challenge)
 
 
 ## What is Async?
@@ -52,7 +52,7 @@ First, we want to boil the water. Let's say that this takes 3 seconds.
 ```js
 const boilWater = () => {
     console.log('Start boiling!'); 
-    const start = Date.now();            // create a date object that contains the current time.
+    const start = Date.now();            // Get a reference of the current time
     while (Date.now() < start + 3000) {} // continuosly checks if 3000 milliseconds has passed.
     console.log('Water boiled!');
 }
@@ -63,7 +63,7 @@ We are making vegetable ramen, so obviously we need some veggies! Let's say that
 ```js
 const washVeggies = () => {
     console.log('Start washing!');
-    const start = Date.now();            // create a date object that contains the current time.
+    const start = Date.now();            // Get a reference of the current time.
     while (Date.now() < start + 2000) {} // continuosly checks if 2000 milliseconds has passed.
     console.log('Veggies washed!');
 }
@@ -232,7 +232,7 @@ const promise = new Promise((resolve, reject) => {
       resolve('Success!');
     }
     else {
-      reject(new Error('Failed :('));
+      reject('Failed :(');
     }
 });
 
@@ -263,7 +263,7 @@ promise.then((successMessage) => {
 Let's apply this to our 🍜 ramen problem:
 
 ```js
-function boilWater() {
+const boilWater = () => {
     console.log('Start boiling!');
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -380,10 +380,7 @@ It is pretty abstract but don't worry. As you get more and more experienced, you
 
 In the web context, an API usually refers to a set of specific URLs that we can call to retrieve some data.
 So what we mean when say that we want to use a web API is essentially: we want to use code that other people have written and we do 
-this by using the APIs that they have written - we use these APIs by invoking special JavaScript methods that can asynchronously grab
-the data that we want from the internet.
-
-It is pretty abstract but don't worry. As you get more and more experienced, you'll gain an intuition for what an API is.
+this by using the APIs that they have written - we use these APIs by invoking special JavaScript methods that can asynchronously grab the data that we want from the internet.
 
 What is important to understand is the difference between JSON and JavaScript Objects.
 
@@ -395,7 +392,7 @@ In our second workshop, we introduced the idea of a Javscript Object. Looks a li
 const eugenefanboy = {
     firstName: "Alex",
     lastName: "Xia",
-    fanStatus: "Is a subscriber of his youtube channel: https://www.youtube.com/channel/UCs3ldykYHkVDVtM-f1Nvkjg"
+    fanStatus: "Is a subscriber of his youtube channel: https://www.youtube.com/channel/UCs3ldykYHkVDVtM-f1Nvkjg",
     fanboying: () => {
         console.log("UwU Eugene is my number1");
     }
