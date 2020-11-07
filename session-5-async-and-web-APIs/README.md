@@ -189,7 +189,7 @@ washVeggies();
 //Veggies in da pan~
 ```
 
-Now, this code will only take 3 seconds to run. Congrats! You have made Naruto happy. 🎉
+Now, this code will only take 3 seconds to run. Congrats! 
 
 However, we begin to notice a problem: Our code is getting complicated. What if we needed to call a callback within a callback? And then another callback within that callback?
 Our code will get complicated real fast. For example's sake, lets say that after the water has boiled, we need to set aside some boiled water for our soup, which takes 2 seconds (*that shit is hot*), 
@@ -439,7 +439,7 @@ Congratulations! You have used a web API! You may have noticed that the output l
 
 You may have also noticed that one difference that JSON has from a JavaScript object is that in JSON, the `keys` are in quotes.
 There are other differences between the two. The biggest difference is that while JSON values can only be one of the six datatypes (strings, numbers, objects, arrays, Boolean, null). 
-JavaScript values on the other hand can be any valid JavaScript Structure ie. array. In our `eugenefanboy` example above, I defined a 
+JavaScript values on the other hand can be any valid JavaScript Structure. In our `eugenefanboy` example above, I defined a 
 function as a value - something that cannot be done in JSON.
 
 Essentially, because most APIs return data to us in the form of JSON, we need to do special steps to convert them into JavaScript Objects.
