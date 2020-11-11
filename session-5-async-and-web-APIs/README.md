@@ -9,7 +9,7 @@
 
 ## Resources
 
-- [Slides](https://tinyurl.com/hackschool20-s4-slides) TODO
+- [Slides](https://tinyurl.com/hackschool20-s5-slides) 
 - [ACM Membership Attendance Portal](http://members.uclaacm.com/login)
 
 
