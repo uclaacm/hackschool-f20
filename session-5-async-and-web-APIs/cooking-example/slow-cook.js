@@ -19,3 +19,10 @@ function addVeggies() {
 function addRamen() {
     console.log('Ramen in da wata~');
 }
+
+boilWater();  // 3 seconds
+washVeggies(); // 2 seconds
+addVeggies(); //instant
+addRamen(); // instant
+
+

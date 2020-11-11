@@ -35,11 +35,22 @@ Normally, our programs run synchronously. Synchronous means that, if we run two 
     <img alt="Synchronous vs Asynchronous chart" src="assets/SyncvsAsync.png">
 </div>
 
+As an analogy, let's say you needed to wash your clothes, dry your clothes, but also do homework at the same time. You wouldn't want to do each task one at a time because it is slower. That would be a waste of time. Normally, you would:
+
+1. Put your clothes in the washing machine
+2. Start doing homework
+3. After your clothes have washed, stop doing homework and put the washed clothes in the dryer
+4. Resume doing homework
+5. After your clothes have dried, stop doing homework, take them out of the dryer and fold them.
+6. Continue doing your homework late into the night. Damn these professors.
+
+Hence, we see that if we do these things **asynchronously**, we become more efficient.
+
 Asynchronous programming helps us to make our code faster. When we build a website, we will be: talking to the database, downloading something, reading from files, requesting data from websites etc. 
 These things do not happen very fast. It takes time - it happens asynchronously. The value that we expect from these operations is not returned right away. So instead we would like to be able to do 
 other things while we wait for these operations to complete. And when they do return a value, we should be able to know exactly what to do with that value. 
 
-Sounds pretty complicated huh? Let's use cooking as an analogy.
+Sounds pretty complicated huh? Let's use cooking as another analogy.
 
 <div align=center>
     <img alt="Genshin cooking" src="assets/genshin-cook.jpg">
@@ -55,7 +66,7 @@ const boilWater = () => {
     const start = Date.now();            // Get a reference of the current time
     while (Date.now() < start + 3000) {} // continuosly checks if 3000 milliseconds has passed.
     console.log('Water boiled!');
-}
+};
 ```
 
 We are making vegetable ramen, so obviously we need some veggies! Let's say that washing the vegetables takes 2 seconds.
@@ -66,21 +77,21 @@ const washVeggies = () => {
     const start = Date.now();            // Get a reference of the current time.
     while (Date.now() < start + 2000) {} // continuosly checks if 2000 milliseconds has passed.
     console.log('Veggies washed!');
-}
+};
 ```
 
 Now, let's write functions to add our veggies and ramen.
 
 ```js
-function addVeggies() {
+const addVeggies = () => {
     console.log('Veggies in da pan~');
-}
+};
 ```
 
 ```js
-function addRamen() {
+const addRamen = () => {
     console.log('Ramen in da wata~');
-}
+};
 ```
 
 So if we call these functions:
@@ -107,9 +118,29 @@ Are you going to wait for your water to boil before you start washing your veggi
 
 No! We don't need to stare at our water boiling! As engineers and cooks, we're all about efficiency here.
 
-What we want to do is start boiling the water, and while the water is boiling, we start washing the veggies.
+What we want to do is start boiling the water, and while the water is boiling, we start washing the veggies. This can be achieved using callback functions.
 
-This is what **asynchronous code** is for. Using a function called `setTimeout`, let's try to wash the veggies while the water is boiling.
+**What are callback functions?**
+
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function.
+
+An example would be:
+
+```js
+const sayHello = (name) => {
+    console.log("Hello: " + name);
+};
+
+const greetUser = (callback) => {
+    var username = "Alex";
+    callback(username);
+};
+
+greetUser(sayHello);
+```
+
+Although the above code is an example of a **synchronous callback**, since everything is executed immediately, callbacks are often used to continue executing code after an asynchronous operation has completed. Using a function called `setTimeout`, let's try to wash the veggies while the water is boiling. 
+
 
 ```js
 const boilWater = () => {
@@ -117,7 +148,7 @@ const boilWater = () => {
     setTimeout( () => {              // define a callback function that just console.log()'s a message
         console.log('Water boiled!');
     }, 3000);                        // use 3000 millieconds to specify that we want to call the function 
-}                                    // defined above after 3 seconds. 
+};                              // defined above after 3 seconds. 
 ```
 
 `setTimeout` takes two arguments: a function called a **callback function** and the number of milliseconds. Unlike our previous implementation, 
@@ -132,7 +163,7 @@ const washVeggies = () => {
     setTimeout( () => {              // define a callback function that just console.log()'s a message
         console.log('Veggies washed!');
     }, 2000);                        // use 2000 millieconds to specify that we want to call the function 
-}                                    // defined above after 2 seconds. 
+};                                   // defined above after 2 seconds. 
 ```
 
 ### One problem with callbacks
@@ -169,7 +200,7 @@ const boilWater = () => {
         addRamen();
         addVeggies();
     }, 3000);                        
-}                      
+};                      
 ```
 
 There we go! All we did was call the `addRamen()` and `addVeggies()` functions inside of the callback for `boilWater`, ensuring that we will 
@@ -211,7 +242,7 @@ const boilWater = () => {
         addRamen();
         addVeggies();
     }, 3000);                        
-}     
+};     
 ```
 
 Ew! So complicated! Haiya! Uncle Roger don't approve. When you nest so many callbacks together, this is called **callback hell** because not only is your
@@ -222,6 +253,15 @@ code hard to read, but it is also very hard to debug and catch bugs. These probl
 ## What are Promises?
 
 A Promise is an object that "represents the eventual completion (or failure) of an asynchronous operation, and its resulting value." (from MDN)
+
+It can be one of three states:
+- Pending
+- Fulfilled
+- Rejected
+
+Promises have a method called `.then()` . It takes a function as an argument. JavaScript will call this function whenever a Promise has reached its "fulfilled" state. 
+
+Similarly, Promises have another method called `.catch()`. It takes a function as its argument. JavaScript will call this function whenever a Promise has reached its “rejected” state
 
 The key point here is that promises offer a way to guarantee that data will be there before we do anything further. The next part is about how to create a Promise.
 We will mostly be using promises instead of creating them, but please read if you're interested.
@@ -271,7 +311,7 @@ const boilWater = () => {
             resolve();
         }, 3000);
     });
-}
+};
 
 boilWater().then(() => {
     // do soup and condiments stuff here
@@ -303,7 +343,7 @@ You use `async` when you declare a function. It means that the function will ret
 ```js
 const f = async () => {
     return 1;
-}
+};
 
 f().then((result) => {
     console.log(result); // should log 1
@@ -317,12 +357,12 @@ In an `async` function, you can use `await` before a promise. This pauses the ex
 ```js
 const f = async () => {
     return 1; //implicitly a promise because of async
-}
+};
 
 const main = async () => {
     let result = await f(); // waits until result is filled before moving on
     console.log(result);
-}
+};
 
 main();
 ```
@@ -335,7 +375,7 @@ const main = async () => {
     addRamen();
     await washVeggies();
     addVeggies();
-}
+};
 
 main();
 
@@ -357,7 +397,7 @@ const main = async () => {
     await Promise.all(allPromises);
     addRamen();
     addVeggies();
-}
+};
 ```
 
 Let's boil 5 pots of water at a time!
@@ -370,13 +410,16 @@ const main = async () => {
     }
     await Promise.all(allPromises);
     console.log('Done!')
-}
+};
 ```
 
 ## Quick rundown on web APIs
 
 API stands for Application Programming Interface. An API is a definition of methods of communication among various components.
 It is pretty abstract but don't worry. As you get more and more experienced, you'll gain an intuition for what an API is.
+
+Let's use a car as an analogy:
+We don't need to know how a car works to drive a car. All we need to know is how to use the ignition key, how to use the shift stick, how to use the steering wheel, and how to read the dashboard. We don't need to know how a steering wheel turns the axle, nor do we need to know how the engine makes our car move. This is like an API. Users only need to know how to use it, they don't need to know how it is actually implemented.
 
 In the web context, an API usually refers to a set of specific URLs that we can call to retrieve some data.
 So what we mean when say that we want to use a web API is essentially: we want to use code that other people have written and we do 
@@ -389,7 +432,7 @@ What is important to understand is the difference between JSON and JavaScript Ob
 In our second workshop, we introduced the idea of a Javscript Object. Looks a little like this:
 
 ```js
-const eugenefanboy = {
+const eugeneFanboy = {
     firstName: "Alex",
     lastName: "Xia",
     fanStatus: "Is a subscriber of his youtube channel: https://www.youtube.com/channel/UCs3ldykYHkVDVtM-f1Nvkjg",
@@ -402,8 +445,8 @@ const eugenefanboy = {
 And then we can access an element inside of our Object by doing this:
 
 ```js
-console.log(eugenefanboy.firstName);
-eugenefanboy.fanboying();
+console.log(eugeneFanboy.firstName);
+eugeneFanboy.fanboying();
 
 //Alex
 //UwU Eugene is my number1
@@ -439,7 +482,7 @@ Congratulations! You have used a web API! You may have noticed that the output l
 
 You may have also noticed that one difference that JSON has from a JavaScript object is that in JSON, the `keys` are in quotes.
 There are other differences between the two. The biggest difference is that while JSON values can only be one of the six datatypes (strings, numbers, objects, arrays, Boolean, null). 
-JavaScript values on the other hand can be any valid JavaScript Structure. In our `eugenefanboy` example above, I defined a 
+JavaScript values on the other hand can be any valid JavaScript Structure. In our `eugeneFanboy` example above, I defined a 
 function as a value - something that cannot be done in JSON.
 
 Essentially, because most APIs return data to us in the form of JSON, we need to do special steps to convert them into JavaScript Objects.
@@ -509,7 +552,7 @@ const getCatFactFromAPI = () => {
 	.then( (resJson) => {
 		console.log(resJson);
 	});
-}
+};
 ```
 
 However, we're still not quite there yet. What we're looking for is a *kawaii* cat fact 😸, not a JavaScript Object (ew not cute). 
@@ -540,7 +583,7 @@ const getCatFactFromAPI = () => {
 	.catch( (err) => {
 		console.log(err);
 	});
-}
+};
 ```
 
 > 🚩 Checkpoint: Pressing the button should display a random cat fact under the button.

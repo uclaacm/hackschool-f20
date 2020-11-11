@@ -1,5 +1,5 @@
 const promise = new Promise((resolve, reject) => {
-    if (1 < 2) {
+    if (4 < 2) {
       resolve('Success!');
     }
     else {
