@@ -24,8 +24,6 @@
     - [The Viewport Meta Tag](#the-viewport-meta-tag)
     - [Other Considerations](#other-considerations)
   - [Accessible Design](#accessible-design)
-    - [Images](#images)
-    - [Tools](#tools)
 
 ## Responsive Design
 
@@ -151,13 +149,4 @@ By default on phones, mobile browsers will set the viewport width to 960 pixels 
 
 ## Accessible Design
 
-### Images
-
-Don't use background image for meaningful images.
-
-https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
-
-### Tools
-
-1. [WAVE (Web Accessibility Evaluation Tool)]()
-   1.
+Take a look at the [`accessibility-demo` folder](accessibility-demo/) for some good and bad examples of accessible design.
