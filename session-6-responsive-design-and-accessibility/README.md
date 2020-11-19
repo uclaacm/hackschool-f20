@@ -24,6 +24,10 @@
     - [The Viewport Meta Tag](#the-viewport-meta-tag)
     - [Other Considerations](#other-considerations)
   - [Accessible Design](#accessible-design)
+    - [Image Alt Text](#image-alt-text)
+    - [Labels for Form Inputs](#labels-for-form-inputs)
+    - [Semantic HTML](#semantic-html)
+    - [Learning More About Accessibility](#learning-more-about-accessibility)
 
 ## Responsive Design
 
@@ -150,3 +154,85 @@ By default on phones, mobile browsers will set the viewport width to 960 pixels 
 ## Accessible Design
 
 Take a look at the [`accessibility-demo` folder](accessibility-demo/) for some good and bad examples of accessible design.
+
+### Image Alt Text
+
+A screen reader uses the alt text attribute on an image so that the user doesn't miss out on anything in the event that they can't see the image. Good alt text is a detailed but succinct description of the image. Check out some alt text guidelines [here](https://bighack.org/how-to-write-better-alt-text-descriptions-for-accessibility/). Alt text is also useful in situations where an image cannot be loaded, for example on a phone with low bandwidth.This is an example:
+
+```html
+<img
+  class="meme"
+  src="meme.png"
+  alt="Among Us crewmates and mini crewmates sit
+    in front of a whiteboard that states 'Mini crewmates should be able to do
+    mini tasks'"
+/>
+```
+
+One very bad way to create a contentful image is to use the `background-image` CSS property. This property should only be used for decorative images. Even though a background image might look the same on the surface as an image created using the `img` tag, it will be skipped over by the screen reader. This is how you can create a decorative image but not an image with actual content:
+
+```html
+<div class="image"></div>
+```
+
+```css
+.image {
+  background-image: url("meme.png");
+  height: 300px;
+  width: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+
+### Labels for Form Inputs
+
+It is helpful for a screen reader user to know exactly what an input field is asking for through text. You can do this by adding a label. In the `for` attribute of the label, use the `id` of the input that the label is referring to.
+
+```html
+<label for="crew-name">Crewmate name:</label>
+<input type="text" name="crew-name" id="crew-name" />
+```
+
+### Semantic HTML
+
+Whenever possible, use HTML tags as they were meant to be used. For example, don't use headings for text that is not a heading. Similarly, if text is a heading, make sure it is labeled as `h1`. The screen reader only has this information to go from when describing the page to the user. So even if visually two pages appear the same, one may actually be missing a lot of key information such as what text is a heading or what columns are in a table.
+
+This is correctly labeled:
+
+```html
+<h1>Tag Yourself</h1>
+<h2>Pink</h2>
+<img class="character" src="pink.png" alt="Pink Among Us character" />
+<ul>
+  <li>Shy</li>
+  <li>Stays in groups because they're too scared to do task alone</li>
+  <li>Has no idea what's going on</li>
+</ul>
+```
+
+This is incorrect HTML even if it is the same visually:
+
+```html
+<div class="heading1">Tag Yourself</div>
+<div class="heading2">Pink</div>
+<img class="character" src="pink.png" alt="Pink Among Us character" />
+<ul>
+  <li>Shy</li>
+  <li>Stays in groups because they're too scared to do task alone</li>
+  <li>Has no idea what's going on</li>
+</ul>
+```
+
+### Learning More About Accessibility
+
+Accessibility is an extremely broad topic. More considerations include captions, allowing flickering content to be turned off, and making sure the website is able to be navigated by tabs. Here are some resources to learn more!
+
+- [a11yresources](https://a11yresources.webflow.io/) is a beautiful website that links to curated accessibility articles and guides.
+- [Accessibility Checklist from UX Design](https://uxdesign.cc/accessibility-checklist-195da7ab64fb) is a good list of accessibility considerations, broken down by different types of disabilities.
+- [W3 Preliminary Tests](https://www.w3.org/WAI/test-evaluate/preliminary/) give the most critical accessibility tests and how to check if your website follows these standards.
+- [WAVE Web Accessibility Evaluation Tool](https://wave.webaim.org/) is an extension you can run on a website that helps identify accessibility-related errors.
+- [NoCoffee Chrome Extension](https://chrome.google.com/webstore/detail/nocoffee/jjeeggmbnhckmgdhmgdckeigabjfbddl?hl=en-US) is an extension that can simulate vision problems on Google Chrome.
+- [Sim Daltonism for Mac](https://michelf.ca/projects/mac/sim-daltonism/) also can be used to simulate vision problems but acts as a filter over any application.
+- [ChromeVox](https://chrome.google.com/webstore/detail/chromevox-classic-extensi/kgejglhpjiefppelpmljglcjbhoiplfn?hl=en) is a screen reader Chrome extension that I used for the workshop demos.
