@@ -47,11 +47,13 @@ Check how your website looks like with Chrome Developer Tools! Right-click -> "I
 
 From this point forward, we will be using a simple website to demonstrate a couple ways to make your website more responsive. Download `demo-starter.zip` to get the code. This is how the website looks on desktop:
 
-![Among Us themed website on desktop](images/demo.png)
+<img src="images/demo.png" alt="Among Us themed website on desktop" height="300px"/>
+
 I added borders to get a better sense of where each element is in relation to each other.
 
 However there are a lot of problems when we take a look at the website on mobile:
-![Among Us themed website on mobile with portions of text and images cut off](images/startermobile.png)
+
+<img src="images/startermobile.png" alt="Among Us themed website on mobile with portions of text and images cut off" height="300px"/>
 
 ### Max Width
 
@@ -68,7 +70,7 @@ There are also more advanced techniques to even replace images upon detecting a 
 
 Below the cover photo, there are two more elements that also extend past the screen size called `text-container` and `character-container`. Once we change those elements' `max-width` to `100%`, we can see that nothing extends past the edge of the screen anymore.
 
-![With the max width property set, the content of the page no longer extends past the edge of the screen.](images/maxwidth.png)
+<img src="images/maxwidth.png" alt="With the max width property set, the content of the page no longer extends past the edge of the screen." height="300px"/>
 
 ### Media queries
 
@@ -132,7 +134,8 @@ In my media query, I can change the value to be 50% of the parent instead to giv
 ```
 
 The website should now look like this:
-![After the media query is added, the text has changed to one column and the characters have changed to two columns.](images/mediaquery.png)
+
+<img src="images/mediaquery.png" alt="After the media query is added, the text has changed to one column and the characters have changed to two columns." height="300px"/>
 
 ### The Viewport Meta Tag
 
