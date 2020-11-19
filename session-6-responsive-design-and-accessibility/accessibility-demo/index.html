@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hackschool Session 6 Accessibility Demo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body>
+    <p class="bad-contrast">Text with bad contrast</p>
+    <p class="aa-contrast">Text with AA standard contrast</p>
+    <p class="aaa-contrast">Text with AAA standard contrast</p>
+    <!--Image alt text is good-->
+    <img
+      class="meme"
+      src="meme.png"
+      alt="Among Us crewmates and mini crewmates sit
+    in front of a whiteboard that states 'Mini crewmates should be able to do
+    mini tasks'"
+    />
+    <!--Background image for a meaningful image is bad-->
+    <div class="image"></div>
+    <!--Alt text is good for slow loading too-->
+    <img
+      src="mehmeh.png"
+      alt="This is example alt text that would show up if the image was not able to load."
+    />
+    <br />
+    <!--Labels are good-->
+    <label for="name">Crewmate name:</label><br />
+    <input type="text" name="name" id="name" /><br />
+    <!--No labels are bad-->
+    <p>Mini crewmate name:</p>
+    <input type="text" name="mini-name" id="mini-name" /><br />
+    <!--Correctly labeling headings is good-->
+    <h1>Tag Yourself</h1>
+    <h2>Pink</h2>
+    <img class="character" src="pink.png" alt="Pink Among Us character" />
+    <ul>
+      <li>Shy</li>
+      <li>Stays in groups because they're too scared to do task alone</li>
+      <li>Has no idea what's going on</li>
+    </ul>
+    <h2>Blue</h2>
+    <img class="character" src="blue.png" alt="Blue Among Us character" />
+    <ul>
+      <li>Double kills</li>
+      <li>"I was in admin swiping"</li>
+      <li>Probably an actual psychopath</li>
+    </ul>
+    <h2>Purple</h2>
+    <img class="character" src="purple.png" alt="Purple Among Us character" />
+    <ul>
+      <li>Acts sus all the time</li>
+      <li>Got blamed for someone else's kill</li>
+      <li>Forgets what task they were doing last</li>
+    </ul>
+    <!--Not using headings is bad-->
+    <div class="heading1">Tag Yourself</div>
+    <div class="heading2">Pink</div>
+    <img class="character" src="pink.png" alt="Pink Among Us character" />
+    <ul>
+      <li>Shy</li>
+      <li>Stays in groups because they're too scared to do task alone</li>
+      <li>Has no idea what's going on</li>
+    </ul>
+    <div class="heading2">Blue</div>
+    <img class="character" src="blue.png" alt="Blue Among Us character" />
+    <ul>
+      <li>Double kills</li>
+      <li>"I was in admin swiping"</li>
+      <li>Probably an actual psychopath</li>
+    </ul>
+    <div class="heading2">Purple</div>
+    <img class="character" src="purple.png" alt="Purple Among Us character" />
+    <ul>
+      <li>Acts sus all the time</li>
+      <li>Got blamed for someone else's kill</li>
+      <li>Forgets what task they were doing last</li>
+    </ul>
+    <a
+      href="https://www.reddit.com/r/AmongUs/comments/iytz18/made_an_cute_among_us_tag_yourself_i_hope_yall/"
+    >
+      Source
+    </a>
+  </body>
+</html>

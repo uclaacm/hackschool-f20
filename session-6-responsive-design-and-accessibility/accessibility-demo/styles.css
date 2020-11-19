@@ -1,0 +1,57 @@
+* {
+  font-family: Poppins, sans-serif;
+  margin: 10px;
+}
+
+p {
+  font-size: 18px;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.heading1 {
+  font-size: 32px;
+}
+
+.heading2 {
+  font-size: 24px;
+}
+
+.image {
+  background-image: url("meme.png");
+  height: 300px;
+  width: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.meme {
+  height: 300px;
+  width: 400px;
+}
+
+.character {
+  height: 100px;
+}
+
+.bad-contrast {
+  color: #747474;
+  background-color: #eeeeee;
+}
+
+.aa-contrast {
+  color: #6c6c6c;
+  background-color: #eeeeee;
+}
+
+.aaa-contrast {
+  color: #4f4f4f;
+  background-color: #eeeeee;
+}

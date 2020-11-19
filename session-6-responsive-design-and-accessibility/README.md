@@ -25,6 +25,7 @@
     - [Other Considerations](#other-considerations)
   - [Accessible Design](#accessible-design)
     - [Images](#images)
+    - [Tools](#tools)
 
 ## Responsive Design
 
@@ -143,10 +144,10 @@ By default on phones, mobile browsers will set the viewport width to 960 pixels 
 
 ### Other Considerations
 
-Hover interactions
-Buttons are big enough to easily tap
-Font is big enough to read on a phone
-Simplify the layout
+1. Hover interactions: On a phone, users cannot hover so make sure there isn't any information or features that are only accessible by hover.
+2. Button size: Make sure buttons are big enough to easily tap in the mobile version.
+3. Layout complexity: With less space, it can be overwhelming to have all of the same features as the desktop version. Consider simplifying the layout and removing unnecessary elements.
+4. Browser support: This is a big category that could require an entire workshop by itself, but the nature of the web is that different browsers (Chrome, Firefox, Safari, Internet Explorer) behave in ever so slightly different ways and support slightly different features. Make sure when you view your website in different browsers that it still works.
 
 ## Accessible Design
 
@@ -155,3 +156,8 @@ Simplify the layout
 Don't use background image for meaningful images.
 
 https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design
+
+### Tools
+
+1. [WAVE (Web Accessibility Evaluation Tool)]()
+   1.
