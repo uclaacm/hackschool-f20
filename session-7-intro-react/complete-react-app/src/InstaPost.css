@@ -1,0 +1,35 @@
+.post {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 300px;
+    border: 1px solid black;
+}
+
+.account-line {
+    text-align: left;
+    padding: 8px;
+}
+
+.img-wrapper {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-img {
+    width: 100%;
+}
+
+.post-info {
+    padding: 4px;
+}
+
+.icons {
+    display: inline-block;
+}
+
+.icon {
+    display: inline;
+    width: 30px;
+    padding: 4px;
+}
