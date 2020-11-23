@@ -6,66 +6,66 @@ import comment from './images/comment.png';
 import share from './images/share.png';
 
 function Comment(props) {
-    return <div>
-        <strong>eug.lo </strong>{props.text}
-    </div>
+  return <div>
+    <strong>eug.lo </strong>{props.text}
+  </div>
+}
+
+function Icon(props) {
+  return <img className='icon' alt={props.icon + " icon"} src={props.image} />
 }
 
 function InstaPost(props) {
-    
-    const [ likeCount, setLikeCount ] = useState(0);
-    const [ comments, setComments ] = useState([]);
-    const [ inputText, setInputText ] = useState('');
+  
+  const [ likeCount, setLikeCount ] = useState(0);
+  const [ inputText, setInputText ] = useState('');
+  const [ comments, setComments ] = useState([]);
 
-    const incrementLikeCount = () => {
-        console.log("Incrementing like count!")
-        setLikeCount( currentLikeCount => currentLikeCount + 1)
+  const incrementLikeCount = () => {
+    console.log("Incrementing like count!")
+    setLikeCount(likeCount + 1)
+  }
+
+  const updateInputBox = (event) => {
+    setInputText(event.target.value)
+  }
+
+  const addComment = () => {
+    if (inputText.trim() !== '') {
+      setComments([...comments, <Comment key={inputText} text={inputText}/>]);
     }
+    setInputText('');
+  }
 
-    const updateInputBox = (event) => {
-        setInputText(event.target.value)
-    }
-
-    const addComment = () => {
-        if (inputText.trim() !== '') {
-            setComments( comments => [...comments, <Comment key={inputText} text={inputText} />]);
-        }
-        setInputText('');
-    }
-
-    return <div className='post'>
-        <div className='account-line'>
-            <strong>{props.accountName}</strong>
-        </div>
-        <div className='img-wrapper'>
-            <img 
-                className='post-img'
-                alt="content of instagram post" 
-                src={props.image}
-                onClick={incrementLikeCount}
-            />
-        </div>
-        <div className='post-info'>
-            <div className='icons'>
-                <img className='icon' alt="heart icon" src={heart} />
-                <img className='icon' alt="comment icon" src={comment} />
-                <img className='icon' alt="share icon" src={share} />
-            </div>
-            <div>
-                Liked by <span>{likeCount}</span> people
-            </div>
-            <div>
-                <strong>{props.accountName}</strong> {props.caption}
-            </div>
-            <div className='comments'>
-                {comments}
-            </div>
-            <label>
-                <input type='text' value={inputText} onChange={updateInputBox}/>
-                <button onClick={addComment}>Comment</button>
-            </label>
-        </div>
+  return <div className='post'>
+    <div className='account-line'>
+      <strong>{props.accountName}</strong>
     </div>
+    <img 
+      className='post-img'
+      src={props.image}
+      alt={props.altDescription}
+      onClick={incrementLikeCount}
+    />
+    <div className='post-info'>
+      <div className='icons'>
+        <Icon icon='heart' image={heart} />
+        <Icon icon='comment' image={comment} />
+        <Icon icon='share' image={share} />
+      </div>
+      <div>
+        {likeCount} likes
+      </div>
+      <div>
+        <strong>{props.accountName}</strong> {props.caption}
+      </div>
+      <div className='comments'>
+        {comments}
+      </div>
+      <input type='text' value={inputText} onChange={updateInputBox}/>
+      <button onClick={addComment}>Comment</button>
+    </div>
+  </div>
 }
 
 export default InstaPost;
