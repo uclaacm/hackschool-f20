@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './InstaPost.css';
 
-import heart from './images/heart.png';
-import comment from './images/comment.png';
-import share from './images/share.png';
+import heart from '../images/heart.png';
+import comment from '../images/comment.png';
+import share from '../images/share.png';
 
 function Comment(props) {
   return <div>
