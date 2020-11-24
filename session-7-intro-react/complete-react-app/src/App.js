@@ -1,6 +1,6 @@
 import './App.css';
 
-import InstaPost from './InstaPost';
+import InstaPost from './components/InstaPost';
 
 import jungkook from './images/jungkook.png'
 import iuWithBun from './images/iu-bun.jpg';
