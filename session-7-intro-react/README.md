@@ -25,9 +25,9 @@ This folder contains ["complete-react-app"](./complete-react-app), which **only*
   - [Rendering](#rendering)
 - [Demo](#demo)
   - [Creating an InstaPost Component](#creating-an-instapost-component)
-- [Props and State](#props-and-state)
-  - [Props](#what-are-props?)
-  - [State](#state)
+- [Props](#what-are-props?)
+- [State](#state)
+- [Challenges](#try-it-yourself:-challenges)
 
 ---
 
@@ -431,9 +431,9 @@ function InstaPost() {
     />
     <div className='post-info'>
       <div className='icons'>
-        <img src={heart} alt='heart icon' />
-        <img src={comment} alt='comment icon' />
-        <img src={share} alt='share icon' />
+        <img className='icon' src={heart} alt='heart icon' />
+        <img className='icon' src={comment} alt='comment icon' />
+        <img className='icon' src={share} alt='share icon' />
       </div>
       <div>
         0 likes
@@ -531,9 +531,9 @@ Once we save and refresh, it should start looking like a proper Instascam feed!
 
 ![hardcoded instascam feed](./images/instascam.gif)
 
-## Props and State
-
 ---
+
+## Props
 
 By now, we have learned how to create reusable function 
 components with React! Unfortunately, all of our components
@@ -543,8 +543,7 @@ of Jungkook. How do I _customize_ each component to have
 a different images, caption, and account name? In other words:
 
 **Question:** _How we do customize each component to contain 
-different information?_ (TODO: i'm not a fan of how this
-question is phrased.)
+different information?_ 
 
 **Answer:** We use props!
 
@@ -567,8 +566,8 @@ We pass data to this `props` parameter like this.
 <Profile name='jieun' age={27}/>
 ```
 
-In this example, the prop called `name` and `age` each
-are a single prop. The `props` parameter in our function
+In this example, `name` and `age` are each
+a single prop. The `props` parameter in our function
 will contain an _object_ that contains _both_ of them. It would
 look something like this:
 
@@ -598,7 +597,7 @@ jieun
 ```
 
 ### Careful! A _gotcha_ to look out for
-Often times we will be using our prop data within html 
+Often times we will use our prop data within HTML 
 elements. For example 
 
 ```js
@@ -637,7 +636,7 @@ Here are the parts of the post we do not want hardcoded.
 * image
 * caption
 
-Let's pass in some props so that our prop object will look 
+Let's pass in some props so that our props object will look 
 something like this:
 ```
 props: {
@@ -649,31 +648,24 @@ props: {
 
 ```html
 function InstaPost(props) {
-    return <div className='post'>
-        <div className='account-line'>
-            {/* Access account name prop here*/}
-            <strong>{props.accountName}</strong>
-        </div>
-        <div className='img-wrapper'>
-            {/* Access image prop here*/}
-            <img 
-                className='post-img'
-                src={props.image}
-            />
-        </div>
-        <div className='post-info'>
-            <div className='icons'>
-                {/* ... */}
-            </div>
-            <div>
-                Liked by <span>0</span> people
-            </div>
-            <div>
-                {/* Access account name and caption here */}
-                <strong>{props.accountName}</strong> {props.caption}
-            </div>
-        </div>
+  return <div className='post'>
+    <div className='account-line'>
+      {/* Access account name here */}
+      <strong>{props.accountName}</strong>
     </div>
+    <img 
+      className='post-img'
+      {/* Access image here */}
+      src={props.image}
+    />
+    <div className='post-info'>
+      ...
+      <div>
+        {/* Access account name and caption*/}
+        <strong>{props.accountName}</strong> {props.caption}
+      </div>
+    </div>
+  </div>
 }
 ```
 
@@ -684,7 +676,7 @@ import './App.css';
 import InstaPost from './InstaPost';
 
 /* import images we want to use*/
-import iuWithBun from './images/iu.jpg';
+import iuWithBun from './images/iu-bun.jpg';
 import iuCute from './images/iu-cute.png';
 import iuFunny from './images/iu-funny.jpg';
 
@@ -694,7 +686,7 @@ function App() {
         <InstaPost 
             accountName='jowody_lin' 
             image={iuWithBun} 
-            caption='i wanna be the bun she is holding.'
+            caption='steamed buns!'
         />
         <InstaPost
             accountName='not_jody8'
@@ -727,7 +719,7 @@ const posts = [
   {
     accountName: 'jowody_lin',
     image: iuWithBun,
-    caption: 'i wanna be the bun she is holding.'
+    caption: 'steamed buns!'
   },
   {
     accountName: 'not_jody8',
@@ -748,7 +740,7 @@ and apply the props to `InstaPost` components.
 ```jsx
 import './App.css';
 import InstaPost from './InstaPost';
-import iuWithBun from './images/iu.jpg';
+import iuWithBun from './images/iu-bun.jpg';
 import iuCute from './images/iu-cute.png';
 import iuFunny from './images/iu-funny.jpg';
 
@@ -756,7 +748,7 @@ const posts = [
   {
     accountName: 'jowody_lin',
     image: iuWithBun,
-    caption: 'i wanna be the bun she is holding.'
+    caption: 'steamed buns!'
   },
   {
     accountName: 'not_jody8',
@@ -774,13 +766,13 @@ function App() {
   return (
     <div className="App">
       {
-        posts.map(post => 
-          <InstaPost 
+        posts.map(post => { 
+          return <InstaPost 
             accountName={post.accountName} 
             image={post.image} 
             caption={post.caption}
           />
-        )
+        })
       }
     </div>
   );
@@ -804,15 +796,15 @@ function App() {
   return (
     <div className="App">
       {
-        posts.map(post => 
-          <InstaPost 
+        posts.map(post => {
+          return <InstaPost 
             accountName={post.accountName} 
             image={post.image} 
             caption={post.caption}
             /* assuming every caption is unique */
             key={post.caption}
           />
-        )
+        })
       }
     </div>
   );
@@ -824,6 +816,41 @@ us to add the `key` prop, but it is out of scope of this
 introductory workshop. If you are interested in reading more,
 a thorough explanation can be found [here](https://reactjs.org/docs/reconciliation.html). 
 
+### Other places to simplify code
+Within `InstaPost.js` we have 3 icons that all have
+a lot of repeated code. 
+```html
+<div className='icons'>
+  <img className='icon' src={heart} alt='heart icon' />
+  <img className='icon' src={comment} alt='comment icon' />
+  <img className='icon' src={share} alt='share icon' />
+</div>
+```
+
+Let's practice using props and create a new component
+just for icons.
+
+Inside of `InstaPost.js` we can define an `Icon` component
+for `InstaPost` to use. 
+```js
+function Icon(props){
+  <img className='icon' src={props.image} alt={props.icon + ' icon'} />
+        
+}
+
+function InstaPost(props) { ... }
+```
+
+Then within the `InstaPost` function, let's replace
+each image tag with our new component.
+```html
+<div className='icons'>
+  <Icon icon='heart' image={heart} />
+  <Icon icon='comment' image={comment} />
+  <Icon icon='share' image={share} />
+</div>
+```
+
 
 **Code Checkpoint**: *phew* okay that was a lot. If you've made it so far, your code should look like this:
 
@@ -831,7 +858,7 @@ a thorough explanation can be found [here](https://reactjs.org/docs/reconciliati
 // App.js
 import './App.css';
 import InstaPost from './InstaPost';
-import iuWithBun from './images/iu.jpg';
+import iuWithBun from './images/iu-bun.jpg';
 import iuCute from './images/iu-cute.png';
 import iuFunny from './images/iu-funny.jpg';
 
@@ -839,7 +866,7 @@ const posts = [
   {
     accountName: 'jowody_lin',
     image: iuWithBun,
-    caption: 'i wanna be the bun she is holding.'
+    caption: 'steamed buns!'
   },
   {
     accountName: 'not_jody8',
@@ -857,14 +884,14 @@ function App() {
   return (
     <div className="App">
       {
-        posts.map(post => 
-          <InstaPost 
+        posts.map(post => {
+          return <InstaPost 
             accountName={post.accountName} 
             image={post.image} 
-            // key={post.accountName} 
             caption={post.caption}
+            key={post.caption} 
           />
-        )
+        })
       }
     </div>
   );
@@ -876,35 +903,41 @@ export default App;
 import React from 'react';
 import './InstaPost.css';
 
-import heart from './images/heart.png';
-import comment from './images/comment.png';
-import share from './images/share.png';
+import heart from '../images/heart.png';
+import comment from '../images/comment.png';
+import share from '../images/share.png';
+
+function Icon(props) {
+  return <img className='icon' alt={props.icon + " icon"} src={props.image} />
+}
 
 function InstaPost(props) {
-    return <div className='post'>
-        <div className='account-line'>
-            <strong>{props.accountName}</strong>
-        </div>
-        <div className='img-wrapper'>
-            <img 
-                className='post-img'
-                src={props.image}
-            />
-        </div>
-        <div className='post-info'>
-            <div className='icons'>
-                <img className='icon' src={heart} />
-                <img className='icon' src={comment} />
-                <img className='icon' src={share} />
-            </div>
-            <div>
-                Liked by <span>0</span> people
-            </div>
-            <div>
-                <strong>{props.accountName}</strong> {props.caption}
-            </div>
-        </div>
+
+  return <div className='post'>
+    <div className='account-line'>
+      <strong>{props.accountName}</strong>
     </div>
+    <img 
+      className='post-img'
+      src={props.image}
+    />
+    <div className='post-info'>
+      <div className='icons'>
+        <Icon icon='heart' image={heart} />
+        <Icon icon='comment' image={comment} />
+        <Icon icon='share' image={share} />
+      </div>
+      <div>
+        0 likes
+      </div>
+      <div>
+        <strong>{props.accountName}</strong> {props.caption}
+      </div>
+      <div className='comments'>
+        {comments}
+      </div>
+    </div>
+  </div>
 }
 
 export default InstaPost;
@@ -919,9 +952,9 @@ child component
 in the corresponding `props` object 
 
 ---
-Our instagram app is halfway to being complete. One of the 
-defining features of instagram is that people can like
-posts and leave comments. 
+Our Instascam app is almost complete. However, one of the 
+defining features of the real Instagram that we are copying
+is that people can like posts and leave comments. 
 
 This new feature means that _each instance_ of `<InstaPost />`
 will have to update a like count and comment section on 
@@ -938,7 +971,7 @@ and initialize it to 0.
         {
             accountName: 'jowody_lin',
             image: iuWithBun,
-            caption: 'i wanna be the bun she is holding.',
+            caption: 'steamed buns!',
             likeCount: 0
         },
         {
@@ -1065,9 +1098,7 @@ function InstaPost(props) {
     const [ likeCount, setLikeCount ] = useState(0);
 
     const incrementLikeCount = () => {
-      setLikeCount( currentLikeCount => { 
-        return currentLikeCount + 1
-      });
+      setLikeCount( likeCount + 1 );
     };
 ...
 ```
@@ -1076,9 +1107,8 @@ Let's break down this code.
 
 1. We defined a function called `incrementLikeCount` that 
 takes in no parameters and just calls `setLikeCount`. 
-1. `setLikeCount` takes in a single parameter (here 
-we called it `currentLikeCount`) that is automatically set 
-to the current value of `likeCount`. 
+1. `setLikeCount` takes in a single parameter to set
+the value of `likeCount`. 
 
 Now we just need to call this function every time the image
 post is clicked. 
@@ -1086,12 +1116,12 @@ post is clicked.
 Previously during [Session 3](https://github.com/uclaacm/hackschool-f20/tree/main/session-3-dom-api) we learned that
 we simply use the function `.addEventListener('click', incrementLikeCount)`. 
 
-However, the creators of React knew that calling a function
-on a click event would be so popular that they built an `onClick` prop into _every_ react element.
+However, because this behavior is so common, in HTML there is
+a built in `onClick` prop into _nearly every_ element.
 
 The syntax looks like this:
 ```html
-<LiterallyAnyElement onClick={theNameOfTheFunctionToCall}>
+<LiterallyAnyElement onClick={theNameOfTheFunctionToCall} />
 ```
 
 If we add this to our post image, we get this:
@@ -1102,9 +1132,7 @@ function InstaPost(props) {
     const [ likeCount, setLikeCount ] = useState(0);
 
     const incrementLikeCount = () => {
-      setLikeCount( currentLikeCount => { 
-        return currentLikeCount + 1
-      });
+      setLikeCount(likeCount + 1);
       // for debugging:
       console.log("incremented like count!");
     };
@@ -1118,7 +1146,7 @@ function InstaPost(props) {
         />
         ...
         /* use the state likeCount */
-        <div>Liked by {likeCount} people</div>
+        <div>{likeCount} likes</div>
         ...
     </div>
 }
@@ -1145,27 +1173,39 @@ updated `likeCount` value.
 component. (aka you cannot put `useState` in an if block,
 loop, etc.)
 
+---
+# Try it yourself: Challenges
 
-## Challenge: Adding Comments
+## Challenge 1: Add image alt tags
+Currentlly none of our post images have an alt tag. These
+tags are necessary for better accessibility for screen readers.
+
+Using `props`, add a prop that passes in a descriptive
+alt tag for each image. 
+
+## Challenge 2: Adding Comments
 If you have understood what we've done so far, then here is a 
-demo on how to add comments to each instagram post. This will
+demo on how to add comments to each Instascam post. This will
 involve using _both_ props and state. 
 > If you
 are still digesting the information, then **STOP HERE**. First
-take some time to understand the basic usage of `useState`. 
+take some time to understand the basic usage of `props` and 
+ `useState`. 
 After that, come back to this section, which incorporates
 a few extra concepts we have not taught before. 
 
-After adding comments, our final product should like this:
+**Sneak Peek:** After adding comments, our final product should like this:
 <img src='./images/comment-demo.gif'>
 
-Let's breakdown what we'll need to do:
+Here is what we'll need to do:
 * Create a `Comment` component so we can make multiple
  comments
 * Add an input box with a 'Comment' button
-* Store all comments in an array (using `state`)
+* Create an empty array for comments (using `state`)
 * Create a `Comment` component with the text in the
 input box every time we click the 'Comment' button
+* add the newly created `Comment` component to our existing
+array of comments
 
 First we'll make the `Comment` component:
 ```jsx
@@ -1210,6 +1250,7 @@ function InstaPost(props) {
     ...
     const [ inputText, setInputText ] = useState('');
 
+    /* NEW FUNCTION */
     const updateInputBox = (event) => {
         setInputText(event.target.value)
     }
@@ -1217,6 +1258,7 @@ function InstaPost(props) {
 
     return <div className='post'>
       ...
+        {/* call function with onChange */}
         <input type='text' value={inputText} onChange={updateInputBox} />
         <button>Comment</button>
       ...
@@ -1229,13 +1271,14 @@ Let's breakdown what is happening:
 input box.
   * we continually set the text inside the input box with this
   `value={inputText}`
-* `onChange` is another special built-in prop included by
-React. It is set to a handler function that takes in 
-a parameter that is set equal to the event that triggered
-this fuction call. In this case, the event
+* `onChange` is another special built-in prop. It takes in
+ a handler function that takes in 
+a parameter holding event that triggered
+the function. In this case, the event
 is the user typing in letters to the input box. 
-* `updateInputBox` takes the event and extracts where it came from `event.target`. This will be equal to the `<input>`
-element. `event.target.value` gets us the value of the
+* `updateInputBox` takes the `event` and extracts where it came from with `event.target`. This will be equal to the
+ `<input>` element.
+* `event.target.value` gets us the value of the
 text currently typed into the `<input>` box. 
 
 After adding this, we should be able to type into the 
@@ -1279,9 +1322,7 @@ function InstaPost(props) {
     // ...
 
     const addComment = () => {
-        setComments( comments => { 
-          return [...comments, <Comment key={inputText} text={inputText} />]
-        });
+        setComments([...comments, <Comment key={inputText} text={inputText} />]);
         setInputText('');
     }
 
@@ -1298,7 +1339,6 @@ function InstaPost(props) {
 ```
 
 Let's break down the `addComment` function:
-* it takes the current array of comments in the parameter `comments`. 
 * the new `<Comment />` is appended to the original `comments`
 array.
   * note: the `...comments` is a special operator that says
@@ -1309,69 +1349,141 @@ array.
 Now we should have our working comment section!
 
 The full code of `InstaPost.js` should now look like this:
-```jsx
-function InstaPost(props) {
+```js
+import React, { useState } from 'react';
+import './InstaPost.css';
 
-    const [ likeCount, setLikeCount ] = useState(0);
-    const [ inputText, setInputText ] = useState('');
-    const [ comments, setComments ] = useState([]);
+import heart from '../images/heart.png';
+import comment from '../images/comment.png';
+import share from '../images/share.png';
 
-    const incrementLikeCount = () => {
-        console.log("Incrementing like count!")
-        setLikeCount( currentLikeCount => currentLikeCount + 1)
-    }
-
-    const updateInputBox = (event) => {
-        setInputText(event.target.value)
-    }
-
-    const addComment = () => {
-        setComments( comments => [...comments, <Comment key={inputText} text={inputText} />]);
-        setInputText('');
-    }
-
-    return <div className='post'>
-        <div className='account-line'>
-            <strong>{props.accountName}</strong>
-        </div>
-        <div className='img-wrapper'>
-            <img 
-                className='post-img'
-                src={props.image}
-                onClick={incrementLikeCount}
-            />
-        </div>
-        <div className='post-info'>
-            <div className='icons'>
-                <img className='icon' src={heart} />
-                <img className='icon' src={comment} />
-                <img className='icon' src={share} />
-            </div>
-            <div>
-                Liked by <span>{likeCount}</span> people
-            </div>
-            <div>
-                <strong>{props.accountName}</strong> {props.caption}
-            </div>
-            <div className='comments'>
-                {comments}
-            </div>
-            <input type='text' value={inputText} onChange={updateInputBox}/>
-            <button onClick={addComment}>Comment</button>
-        </div>
-    </div>
+function Comment(props) {
+  return <div>
+    <strong>eug.lo </strong>{props.text}
+  </div>
 }
+
+function Icon(props) {
+  return <img className='icon' alt={props.icon + " icon"} src={props.image} />
+}
+
+function InstaPost(props) {
+  
+  const [ likeCount, setLikeCount ] = useState(0);
+  const [ inputText, setInputText ] = useState('');
+  const [ comments, setComments ] = useState([]);
+
+  const incrementLikeCount = () => {
+    console.log("Incrementing like count!")
+    setLikeCount(likeCount + 1)
+  }
+
+  const updateInputBox = (event) => {
+    setInputText(event.target.value)
+  }
+
+  const addComment = () => {
+    if (inputText.trim() !== '') {
+      setComments([...comments, <Comment key={inputText} text={inputText}/>]);
+    }
+    setInputText('');
+  }
+
+  return <div className='post'>
+    <div className='account-line'>
+      <strong>{props.accountName}</strong>
+    </div>
+    <img 
+      className='post-img'
+      src={props.image}
+      alt={props.altDescription}
+      onClick={incrementLikeCount}
+    />
+    <div className='post-info'>
+      <div className='icons'>
+        <Icon icon='heart' image={heart} />
+        <Icon icon='comment' image={comment} />
+        <Icon icon='share' image={share} />
+      </div>
+      <div>
+        {likeCount} likes
+      </div>
+      <div>
+        <strong>{props.accountName}</strong> {props.caption}
+      </div>
+      <div className='comments'>
+        {comments}
+      </div>
+      <input type='text' value={inputText} onChange={updateInputBox}/>
+      <button onClick={addComment}>Comment</button>
+    </div>
+  </div>
+}
+
 export default InstaPost;
 ```
 
+```js
+// App.js
+import './App.css';
 
+import InstaPost from './components/InstaPost';
 
+import jungkook from './images/jungkook.png'
+import iuWithBun from './images/iu-bun.jpg';
+import iuCute from './images/iu-cute.png';
+import iuFunny from './images/iu-funny.jpg';
 
+const posts = [
+  {
+    accountName: 'eug.lo',
+    image: jungkook,
+    caption: 'wow stan jungkook',
+    altDescription: 'jungkook in a white hoodie'
+  },
+  {
+    accountName: 'jowody_lin',
+    image: iuWithBun,
+    caption: 'steamed buns!',
+    altDescription: 'IU holding a steamed bun'
+  },
+  {
+    accountName: 'not_jody8',
+    image: iuCute,
+    caption: 'why is she literally so perfect',
+    altDescription: 'IU in a green sweater'
+  },
+  {
+    accountName: 'defNotJody719',
+    image: iuFunny,
+    caption: '<3 <3 <3',
+    altDescription: 'IU making a funny face'
+  }
+]
 
+function App() {
+  return (
+    <div className="App">
+      {
+        posts.map(post => {
+          return <InstaPost 
+            accountName={post.accountName} 
+            image={post.image} 
+            caption={post.caption}
+            altDescription={post.altDescription}
+            key={post.accountName} 
+          />
+        })
+      }
+    </div>
+  );
+}
 
+export default App;
+```
 
-
-
-
-
-
+---
+# More on React.js
+If you are interested in learning more about React,
+the official documentation is quite useful and has a fun
+[tutorial](https://reactjs.org/tutorial/tutorial.html) to get you started coding. 
