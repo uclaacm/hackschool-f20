@@ -21,7 +21,7 @@
   - [HTTP Requests](#http-requests)
   - [HTTP Responses](#http-responses)
 - [What is Node.js?](#what-is-nodejs)
-- [Express.js](#expressjs)
+- [Express](#express)
 - [Demo](#demo)
 
 ## What is a Server?
@@ -82,9 +82,118 @@ communicating between computers, and this is why we have HTTP.
 
 ## HTTP
 
+The HyperText Transfer Protocol (HTTP) is the standard way for computers to
+communicate with each other on the Web. A "protocol" can be likened to a natural
+language: it's a notation that the server and client can both understand and
+speak. The name also has "HyperText" in it, which may remind you of HTML – the
+HyperText Markup Language. Indeed, HTTP was invented around the same time as
+HTML, its main original purpose being to allow transfers of HTML files.
+
 ### HTTP Requests
 
-#### HTTP Methods
+In HTTP, the general flow is that the client (your laptop or cell phone) would
+first send a _request_ message to the server, asking for some resource. For
+instance, when you type `https://hack.uclaacm.com/` into the browser's
+navigation box and hit <kbd>Enter</kbd>, the browser would send an HTTP request
+on your behalf to the server. Another example is uploading a meme: the browser
+would send an HTTP request to the server with the meme attached. The browser
+would then wait for the server to respond with what we need.
+
+An HTTP request generally consists of a few parts:
+
+- The **HTTP method** is the primary way the server understands the
+  client/browser's intent. The two most common ones are GET and POST.
+- The **endpoint**, which is a condensed version of the URL to request.
+- The **headers**, containing additional miscellaneous pieces of information the
+  server may find useful.
+- The **body**, any data the client wants to upload to the server (like the
+  meme!).
+
+#### Parts of a URL
+
+This would be a good time to talk a bit about URLs. You know, the boring strings
+one types into the browser address bar. They actually have quite a few parts in
+them.
+
+```
+https  ://  www.facebook.com   /groups/zoommemes/   ?id=1   #post12345
+scheme            host               path           query    fragment
+```
+
+The scheme refers to the protocol (here we have
+[HTTPS](https://en.wikipedia.org/wiki/HTTPS), or HTTP Secure). The host
+identifies _which server_ we are talking to. The path and query further identify
+which resource _on the server_ we want. Finally, the fragment tells the browser
+which _part of the page_ to scroll to.
+
+#### The GET Method
+
+The GET method is used for **retrieving** information from the server. When you
+navigate to a webpage through the address bar, this is what the browser sends
+under the hood.
+
+Here's an example of a GET request that I get when I navigate to
+`https://www.facebook.com/groups/zoommemes`:
+
+```http
+GET /groups/zoommemes HTTP/1.1        =  method + endpoint
+Host: www.facebook.com                ┐
+Accept: */*                           ┘  headers
+```
+
+Here, we see the `GET` in the first line. The `/groups/zoommemes` part refers to
+the URL path (the query would also go here). The `Host:` and `Accept:` lines are
+the HTTP request headers; the `Host` header defines the URL host, while the
+`Accept` header defines what kind of response the client is able to consume –
+anything in this case, apparently. (The `*` is the wildcard operator that
+matches any input.)
+
+We mentioned earlier that HTTP requests can have a body. But where's the body?
+It turns out that GET requests cannot have bodies since they are solely used to
+retrieve things from the server.
+
+#### The POST Method
+
+The POST method is for **sending** information to the server. When you upload a
+meme, or submits a form, or logs into a website, this is the type of request
+that generally happens. Here is an example:
+
+```http
+POST /groups/zoommemes/upload HTTP/1.1       =  method + endpoint
+Host: www.facebook.com                       ┐
+Accept: */*                                  │  headers
+Content-Type: application/json               │
+Content-Length: 19                           ┘
+
+{"meme": "picture"}                          =  body
+```
+
+We see that first line has been changed to reflect the POST method. The
+`Host` and `Accept` headers are the same as before, but we also got two more
+headers: `Content-Type` and `Content-Length`. These two have to do with the
+characteristics of the body we send.
+
+In this example, we are sending a JSON object to the server ([remember
+JSON?](https://github.com/uclaacm/hackschool-f20/tree/main/session-5-async-and-web-APIs#json-vs-javascript-objects)),
+and that's why we have `application/json` as the `Content-Type`. The
+`Content-Length` is the number of bytes/characters in the body.
+
+Other types of request bodies are possible. For instance,
+`application/x-www-form-urlencoded` format is an alternative to JSON that
+simulates the query part of the URL. The following JSON and
+`www-form-urlencoded` bodies have the same meaning:
+```json
+{"key1": "foo", "key2": "bar"}
+```
+```
+key1=foo&key2=bar
+```
+
+We can send even more types of bodies to the server. With `Content-Type:
+image/png` or `image/jpeg`, we can send an image directly. With
+`Content-Type: text/html`, we can even use an HTML page as the request body. (Of
+course, if the server doesn't understand why we are sending an HTML page, it may
+respond with an error; see the response section for more info.)
 
 ### HTTP Responses
 
@@ -162,6 +271,10 @@ available on both the frontend and the backend. If we were to use a different
 language in the backend, we would have to look for tools written for that
 language, too.
 
-## Express.js
+## Express
+
+Node.js provides the _capability_ of making an HTTP server in JavaScript.
+Express is a tool that makes doing so _easy._ (Much like how React makes
+building the frontend easy.)
 
 ## Demo
