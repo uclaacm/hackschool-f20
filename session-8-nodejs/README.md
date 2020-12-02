@@ -277,4 +277,128 @@ Node.js provides the _capability_ of making an HTTP server in JavaScript.
 Express is a tool that makes doing so _easy._ (Much like how React makes
 building the frontend easy.)
 
+To create a new npm project in the current directory, run the following in your 
+terminal
+```sh
+npm init
+```
+
+To install Express, run:
+```sh
+npm install express
+```
+
 ## Demo
+
+### Plain Text Response
+
+We first create a skeleton app, by putting the following in `index.js`:
+```js
+const express = require("express");        // Indicates that your app needs Express
+                                           //
+const app = express();                     // Create a new Express app
+                                           //
+//  vvv this means it's a GET request      //
+app.get("/hello", (request, response) => { // Defines what to do when the user makes
+                                           // a GET /hello request. We receive info
+                                           // about the request and also a response
+                                           // to write our data into.
+                                           //
+  response.setHeader("Content-Type",       // We set the Content-Type header to
+                     "text/plain");        // plain unformatted text.
+                                           //
+  response.send("Hello world!");           // Send the response.
+});                                        //
+                                           //
+app.listen(3000);                          // 3000 is a number we call the _port_.
+
+console.log("Listening on http://localhost:3000/");
+console.log("Press Ctrl-C to quit");
+```
+
+To run this app, execute:
+```sh
+node index.js
+```
+
+Now, go to http://localhost:3000/hello, and you should see "Hello world!" in a
+monospace/typewriter font, indicating that the browser received a plain text
+response. The 3000 number corresponds with what you called `app.listen()` with.
+The `localhost` part of the URL refers to your own computer as the server host.
+
+### HTML Response
+
+Okay, that works, but isn't very interesting. Can we send an HTML file to the
+client?
+
+Add the following to `index.js`, **after** `const app` but **before**
+`app.listen()`:
+
+```js
+app.get("/hello-html", (request, response) => {
+  response.setHeader("Content-Type", "text/html");
+  response.send("Hello, <strong>world</strong>!");
+});
+```
+
+**Important**: Now, restart the server by typing Ctrl-C (same for Mac users),
+and then `node index.js` again.
+
+Navigate to http://localhost:3000/hello-html, and you should see "Hello,
+**world**!"
+
+> Question: What would the output be if we had said instead:
+>
+> ```js
+> response.setHeader("Content-Type", "text/plain");
+> ```
+>
+> <details><summary>Answer</summary>
+>
+> You should see the text
+> ```
+> Hello, <strong>world</strong>!
+> ```
+> without any formatting.
+>
+> </details>
+
+### POST request
+
+Let's say we now want to create a POST endpoint where users can upload memes
+in JSON format. The request body can be accessed through `request.body`.
+That property is a bit hard to use though, since it is a stream of
+bytes rather than the parsed JSON object.
+
+Fortunately, Express provides a function `express.json` that acts as a
+_middleware_ to decode the JSON for us. We will also send a JSON object back
+to the user. We can use it like this:
+```js
+//  vvvv notice how we changed this from `get` to `post`
+app.post("/upload", express.json(), (request, response) => {
+  if (!request.body) {
+    response.setHeader("Content-Type", "text/plain");
+    response.status(400);
+    response.send("Invalid request body")
+    return;
+  }
+  response.send({
+    status: "We have received your meme",
+    meme: request.body,
+  });
+});
+```
+
+We can test it by running the following in browser DevTools:
+```js
+response = await fetch("/upload", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    url: 'https://www.facebook.com/groups/zoommemes/permalink/482785366077607/',
+  }),
+});
+console.log(await response.json());
+```
